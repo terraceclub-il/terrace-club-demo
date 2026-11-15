@@ -58,6 +58,7 @@ nav.desk a{color:var(--fg);text-decoration:none}
 .story-btn small{font-size:12px;font-weight:600;white-space:nowrap;max-width:76px;overflow:hidden;text-overflow:ellipsis}
 /* hero */
 .hero{position:relative;height:clamp(620px,92vh,820px);overflow:hidden}
+@media (max-width:820px){.hero{height:auto;min-height:480px}.hero h1{font-size:clamp(64px,17vw,96px)}.hero-kit{display:none}.hero-body{padding-top:40px;padding-bottom:40px}}
 .hero .layer{position:absolute;inset:0;will-change:transform}
 .hero svg.full{width:100%;height:100%;display:block}
 .hero-body{position:relative;z-index:2;height:100%;display:flex;flex-wrap:wrap;align-items:center;align-content:center;gap:24px;padding:32px var(--px);will-change:transform,opacity}
@@ -131,8 +132,8 @@ footer a{color:var(--mut);text-decoration:none}
 .count{position:absolute;top:-4px;left:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--fg);color:var(--ink);border:2px solid var(--ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 5px}
 .count[hidden]{display:none}
 @media (max-width:820px){nav.desk{display:none}.logo span{font-size:24px}.logo svg{width:44px;height:44px}}
-@media (max-width:440px){header{gap:8px}.logo{gap:6px}.logo span{font-size:20px}.hdr-actions{gap:6px}}
-@media (max-width:340px){.logo span{display:none}}
+@media (max-width:440px){header{gap:6px}.logo{gap:6px;flex:1;min-width:0}.logo span{font-size:17px;white-space:nowrap}.logo svg{flex:none}.hdr-actions{gap:4px}.icon-btn{width:42px;height:42px}}
+@media (max-width:374px){.logo span{display:none}}
 /* overlays */
 .scrim{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.62);border:none;animation:fadeIn .25s}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -263,17 +264,22 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 <div class="ann" aria-hidden="true"><div><span>משלוח חינם ב-2 חולצות או מעל 179 ₪ ✦ הדפסת שם ומספר ✦ 10% הנחה למצטרפים למועדון ✦ עונת 26/27 בחנות ✦</span><span>משלוח חינם ב-2 חולצות או מעל 179 ₪ ✦ הדפסת שם ומספר ✦ 10% הנחה למצטרפים למועדון ✦ עונת 26/27 בחנות ✦</span></div></div>
 
 <header id="hdr">
+  <button class="icon-btn" data-go="menu" aria-label="תפריט"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   <a href="#top" class="logo" aria-label="TERRACE CLUB, לדף הבית"><svg width="48" height="48" aria-hidden="true"><use href="#tc-badge"/></svg><span>TERRACE CLUB</span></a>
   <nav class="desk" aria-label="ראשי"><a href="#shop">חנות</a><a href="#print">סטודיו הדפסה</a><a href="#size">מצא מידה</a><a href="#map">מפת אצטדיונים</a><a href="#gift">מתנה לאוהד</a></nav>
   <div class="hdr-actions">
-    <button class="icon-btn" data-act="search" aria-label="חיפוש"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-    <button class="icon-btn" data-act="favs" aria-label="מועדפים"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
-    <button class="icon-btn cart-ic" data-act="cart" aria-label="סל קניות" style="background:var(--lime);color:var(--ink);border:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 8h14l-1.5 12h-11z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="count cartBadge" hidden>0</span></button>
+    <button class="icon-btn" data-go="search" aria-label="חיפוש"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+    <button class="icon-btn" data-go="favs" aria-label="מועדפים"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+    <button class="icon-btn cart-ic" data-go="cart" aria-label="סל קניות" style="background:var(--lime);color:var(--ink);border:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 8h14l-1.5 12h-11z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="count cartBadge" hidden>0</span></button>
   </div>
 </header>
 
 <section aria-label="סטוריז" style="padding-top:18px"><div class="rail" id="stories" style="gap:14px"></div></section>
 
+<section aria-labelledby="newT" style="padding-top:22px"><div class="wrap row" style="align-items:flex-end;flex-wrap:wrap"><h2 class="disp h2">חם עכשיו</h2><span style="font-size:14px;color:var(--mut)">החליקו · המידה שלך: <strong class="recS" style="color:var(--lime)">M</strong></span></div>
+  <div class="rail" id="hot" style="margin-top:18px"></div>
+  <div id="recentBox" hidden><div class="wrap" style="margin-top:22px"><strong style="font-size:17px">נצפו לאחרונה</strong></div><div class="rail" id="recent" style="margin-top:10px"></div></div>
+</section>
 <section class="wrap" aria-label="מצב משחק" style="padding-top:10px">
   <div class="card match">
     <span class="ph mini"><img data-img="mil" alt=""></span>
@@ -338,15 +344,15 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 </section>
 
 <section id="shop" class="steps" style="padding:56px 0 24px">
-  <div class="wrap row" style="align-items:flex-end;flex-wrap:wrap"><h2 class="disp h2">חם עכשיו</h2><span style="font-size:14px;color:var(--mut)">החליקו · המידה שלך: <strong class="recS" style="color:var(--lime)">M</strong></span></div>
-  <div class="rail" id="hot" style="margin-top:18px"></div>
+  
   <div class="wrap" style="padding-top:48px;display:flex;flex-direction:column;gap:18px">
     <h2 class="disp h2">בחרו את היציע שלכם</h2>
   </div>
   <div class="rail" id="chips" role="group" aria-label="סינון לפי ליגה" style="gap:8px;margin-top:14px"></div>
+  <div class="wrap row" style="justify-content:flex-start;gap:10px;margin-bottom:6px"><label for="sortSel" style="font-size:14px;font-weight:700">מיון:</label><select id="sortSel" class="txt" style="height:44px;width:auto;padding:0 12px;border-radius:999px"><option value="rec">מומלץ</option><option value="new">חדש קודם</option><option value="lo">מחיר: מהנמוך</option><option value="hi">מחיר: מהגבוה</option></select></div>
   <p class="wrap" id="lgIntro" style="margin:4px 0 10px;color:var(--mut);font-size:15px;line-height:1.6;max-width:720px"></p>
   <div class="wrap row" style="justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:12px"><strong style="font-size:14px">המידה שלי להוספה מהירה:</strong><div id="mySize" role="group" aria-label="המידה שלי" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
-  <div class="wrap"><div class="grid" id="grid" style="margin-top:8px"></div></div>
+  <div class="wrap" id="shopGrid"><div class="grid" id="grid" style="margin-top:8px"></div></div>
 </section>
 
 <section id="retro" class="reveal" style="padding:56px 0 8px" aria-labelledby="retroT">
@@ -367,22 +373,13 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
       <button class="btn btn-dark" data-act="addCustom" style="min-height:56px;font-size:17px">הוספה לסל · מידה <span class="recS">M</span></button>
-      <span style="font-size:14px;font-weight:600">₪<span id="kitPrice"></span> + הדפסה [מחיר] · מוכן תוך 2–4 ימי עסקים</span>
+      <span style="font-size:14px;font-weight:600">₪<span id="kitPrice"></span> + הדפסה בתוספת תשלום · מוכן תוך 2–4 ימי עסקים</span>
     </div>
   </div>
   <div style="flex:1 1 300px;min-width:0;display:flex;justify-content:center"><div class="jersey-wrap" id="studioKit" style="width:min(380px,100%)"></div></div>
 </section>
 
-<section id="fan" class="reveal wrap" style="padding-top:24px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:28px;align-items:center" aria-labelledby="fanT">
-  <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px">
-    <span class="eyebrow">כרטיס אוהד</span>
-    <h2 id="fanT" class="disp h2">הכרטיס שלך.<br>לסטורי.</h2>
-    <p style="margin:0;color:var(--mut);font-size:16px;line-height:1.6">מעלים תמונה, והכרטיס נבנה עם השם, המספר והחולצה שבחרתם בסטודיו. מושלם לסטורי באינסטגרם.</p>
-    <label class="btn btn-lime" style="align-self:flex-start;min-height:56px;cursor:pointer"><input type="file" accept="image/*" id="fanFile" class="sr">העלאת תמונה</label>
-    <span style="font-size:13px;color:var(--mut2)">התמונה נשארת אצלכם בטלפון ולא נשלחת לשום מקום. באתר האמיתי יהיה כאן כפתור שיתוף לסטורי.</span>
-  </div>
-  <div class="fan-out" style="flex:1 1 300px;min-width:0;max-width:420px;margin-inline:auto"><canvas id="fanCv" width="1080" height="1350" role="img" aria-label="כרטיס אוהד"></canvas></div>
-</section>
+
 
 <section id="size" class="dots reveal wrap" style="padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:32px" aria-labelledby="sizeT">
   <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px">
@@ -415,30 +412,15 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
   </div>
 </section>
 
-<section id="track" class="reveal wrap" style="padding-bottom:56px;display:flex;flex-wrap:wrap;gap:28px" aria-labelledby="trackT">
-  <form id="trackF" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px">
-    <span class="eyebrow">איפה החולצה שלי?</span>
-    <h2 id="trackT" class="disp h2">מעקב הזמנה</h2>
-    <p style="margin:0;color:var(--mut);line-height:1.6">מזינים את מספר ההזמנה ורואים בדיוק איפה היא. בלי לחכות לתשובה בוואטסאפ.</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap"><label for="ord" class="sr">מספר הזמנה</label><input id="ord" class="txt" inputmode="numeric" placeholder="מספר הזמנה, למשל 1042" style="flex:1 1 180px;height:54px;border-radius:999px;padding:0 20px"><button class="btn btn-lime" type="submit">בדיקה</button></div>
-  </form>
-  <div id="trackOut" class="card" style="flex:1 1 340px;min-width:0;padding:22px"><span style="color:var(--mut2)">הסטטוס יופיע כאן.</span></div>
-</section>
 
-<section id="faq" class="reveal wrap" style="padding-bottom:56px" aria-labelledby="faqT">
-  <h2 id="faqT" class="disp h2" style="margin-bottom:12px">שאלות נפוצות</h2>
-  <details class="faq"><summary>כמה זמן לוקח המשלוח?</summary><p>10–18 ימי עסקים עד הבית, עם שליח ומספר מעקב אישי.</p></details>
-  <details class="faq"><summary>כמה זמן לוקחת הדפסת שם ומספר?</summary><p>2–4 ימי עסקים להכנה ולהדפסה, ואז המשלוח יוצא.</p></details>
-  <details class="faq"><summary>איך אני יודע איזו מידה לקחת?</summary><p>משתמשים במחשבון "איזו מידה אתה?" למעלה. למבנה גוף רגיל לוקחים את המידה הרגילה, ולמראה אוברסייז מידה אחת מעל.</p></details>
-  <details class="faq"><summary>מתי המשלוח חינם?</summary><p>בקנייה של 2 חולצות או בהזמנה מעל 179 ₪.</p></details>
-  <details class="faq"><summary>אפשר להחליף מידה?</summary><p>כן, לפי מדיניות ההחזרות וההחלפות של החנות.</p></details>
-</section>
+
+
 
 <section class="wrap" style="padding-bottom:40px">
   <div class="card" style="padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
     <svg width="56" height="56" aria-hidden="true"><use href="#tc-badge"/></svg>
     <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:2px"><strong style="font-size:17px">TERRACE CLUB על מסך הבית</strong><span style="color:var(--mut);font-size:14px">נפתח כמו אפליקציה, בלחיצה אחת.</span></div>
-    <button class="btn btn-lime" data-act="install">איך מוסיפים</button>
+    <button class="btn btn-lime" data-go="install">איך מוסיפים</button>
   </div>
 </section>
 
@@ -477,8 +459,35 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 </footer>
 
 
-<button class="ptab" data-act="deals" aria-label="פתיחת המבצעים"><i></i>מבצעים</button>
+<button class="ptab" data-go="deals" aria-label="פתיחת המבצעים"><i></i>מבצעים</button>
 <div id="promoBox"></div>
+<div id="pg-fan" hidden><section id="fan" class="wrap" style="padding-top:8px;padding-bottom:24px;display:flex;flex-wrap:wrap;gap:28px;align-items:center" aria-labelledby="fanT">
+  <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px">
+    <span class="eyebrow">כרטיס אוהד</span>
+    <h2 id="fanT" class="disp h2">הכרטיס שלך.<br>לסטורי.</h2>
+    <p style="margin:0;color:var(--mut);font-size:16px;line-height:1.6">מעלים תמונה, והכרטיס נבנה עם השם, המספר והחולצה שבחרתם בסטודיו. מושלם לסטורי באינסטגרם.</p>
+    <label class="btn btn-lime" style="align-self:flex-start;min-height:56px;cursor:pointer"><input type="file" accept="image/*" id="fanFile" class="sr">העלאת תמונה</label>
+    <span style="font-size:13px;color:var(--mut2)">התמונה נשארת אצלכם בטלפון ולא נשלחת לשום מקום. באתר האמיתי יהיה כאן כפתור שיתוף לסטורי.</span>
+  </div>
+  <div class="fan-out" style="flex:1 1 300px;min-width:0;max-width:420px;margin-inline:auto"><canvas id="fanCv" width="1080" height="1350" role="img" aria-label="כרטיס אוהד"></canvas></div>
+</section></div>
+<div id="pg-track" hidden><section id="track" class="wrap" style="padding-top:8px;padding-bottom:24px;display:flex;flex-wrap:wrap;gap:28px" aria-labelledby="trackT">
+  <form id="trackF" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px">
+    <span class="eyebrow">איפה החולצה שלי?</span>
+    <h2 id="trackT" class="disp h2">מעקב הזמנה</h2>
+    <p style="margin:0;color:var(--mut);line-height:1.6">מזינים את מספר ההזמנה ורואים בדיוק איפה היא. בלי לחכות לתשובה בוואטסאפ.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><label for="ord" class="sr">מספר הזמנה</label><input id="ord" class="txt" inputmode="numeric" placeholder="מספר הזמנה, למשל 1042" style="flex:1 1 180px;height:54px;border-radius:999px;padding:0 20px"><button class="btn btn-lime" type="submit">בדיקה</button></div>
+  </form>
+  <div id="trackOut" class="card" style="flex:1 1 340px;min-width:0;padding:22px"><span style="color:var(--mut2)">הסטטוס יופיע כאן.</span></div>
+</section></div>
+<div id="pg-faq" hidden><section id="faq" class="wrap" style="padding-top:8px;padding-bottom:24px" aria-labelledby="faqT">
+  <h2 id="faqT" class="disp h2" style="margin-bottom:12px">שאלות נפוצות</h2>
+  <details class="faq"><summary>כמה זמן לוקח המשלוח?</summary><p>10–18 ימי עסקים עד הבית, עם שליח ומספר מעקב אישי.</p></details>
+  <details class="faq"><summary>כמה זמן לוקחת הדפסת שם ומספר?</summary><p>2–4 ימי עסקים להכנה ולהדפסה, ואז המשלוח יוצא.</p></details>
+  <details class="faq"><summary>איך אני יודע איזו מידה לקחת?</summary><p>משתמשים במחשבון "איזו מידה אתה?" למעלה. למבנה גוף רגיל לוקחים את המידה הרגילה, ולמראה אוברסייז מידה אחת מעל.</p></details>
+  <details class="faq"><summary>מתי המשלוח חינם?</summary><p>בקנייה של 2 חולצות או בהזמנה מעל 179 ₪.</p></details>
+  <details class="faq"><summary>אפשר להחליף מידה?</summary><p>כן, לפי מדיניות ההחזרות וההחלפות של החנות.</p></details>
+</section></div>
 <div id="ov"></div>
 <div id="toastBox"></div>
 
@@ -529,12 +538,17 @@ S({name:'אצטדיון טוטנהאם',short:'טוטנהאם',city:'לונדו�
 S({name:'סיגנל אידונה פארק',short:'דורטמונד',city:'דורטמונד, גרמניה',cap:'כ־81 אלף',club:'דורטמונד',kit:'bvb',a:'#F7D117',b:'#151515',rx:20,fact:'הקיר הצהוב: יציע עמידה ענק של אוהדים בצהוב. הטרסה המפורסמת באירופה, ומכאן גם השם שלנו.'},pj(7.45,51.49)),
 S({name:'אליאנץ ארנה',short:'אליאנץ',city:'מינכן, גרמניה',cap:'כ־75 אלף',club:'באיירן',kit:'fcbm',a:'#D21F34',b:'#F4F4F2',rx:190,fact:'כל החזית החיצונית נדלקת באדום במשחקי הבית של באיירן. נראה מקילומטרים.'},pj(11.62,48.22))
 ];
-var st={team:'',dec:'all',lg:'all',cart:[],favs:{},kit:'mil',name:'TERRACE',num:'26',h:178,fit:'reg',stad:0,gift:false,giftTo:'',giftNote:''};
+var st={recent:[],qs:'',team:'',dec:'all',lg:'all',cart:[],favs:{},kit:'mil',name:'TERRACE',num:'26',h:178,fit:'reg',stad:0,gift:false,giftTo:'',giftNote:''};
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function by(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return P[i];return P[0]}
 function f2(n){return n.toFixed(2)}
 function recI(){var i=0;while(i<SZ.length-1&&st.h>SZ[i].max)i++;if(st.fit==='over')i=Math.min(i+1,SZ.length-1);return i}
+
+function save(){try{localStorage.setItem('tcState',JSON.stringify({cart:st.cart,favs:st.favs,recent:st.recent,gift:st.gift,giftTo:st.giftTo,giftNote:st.giftNote,name:st.name,num:st.num,kit:st.kit,h:st.h,fit:st.fit,qs:st.qs}))}catch(x){}}
+function load(){try{var o=JSON.parse(localStorage.getItem('tcState')||'null');if(o){['cart','favs','recent','gift','giftTo','giftNote','name','num','kit','h','fit','qs'].forEach(function(k){if(o[k]!==undefined&&o[k]!==null)st[k]=o[k]});st.cart=(st.cart||[]).filter(function(i){return P.some(function(p){return p.id===i.id})})}}catch(x){}}
+function addRecent(id){st.recent=[id].concat((st.recent||[]).filter(function(x){return x!==id})).slice(0,8);save();rRecent()}
+function rRecent(){var r=(st.recent||[]).map(by);var box=$('#recentBox');if(!box)return;box.hidden=r.length<2;$('#recent').innerHTML=r.map(function(p){return '<article class="card hot-card" style="width:150px;padding:8px"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'">'+photo(p)+'</button><strong style="font-size:13px">'+p.he+'</strong></article>'}).join('')}
 function rec(){if(st.qs){for(var i=0;i<SZ.length;i++)if(SZ[i].s===st.qs)return SZ[i]}return SZ[recI()]}
 function nameShow(){return(st.name||'TERRACE').toUpperCase()}
 function numShow(){return st.num||'26'}
@@ -556,7 +570,8 @@ var LG=[['all','הכל'],['en','אנגליה'],['es','ספרד'],['it','איטל
 function rChips(){$('#chips').innerHTML=LG.map(function(l){var n=P.filter(function(p){return l[0]==='all'||p.lg===l[0]}).length,on=st.lg===l[0];return '<button class="pill'+(on?' on':'')+'" data-lg="'+l[0]+'" aria-pressed="'+on+'">'+l[1]+' · '+n+'</button>'}).join('')}
 var LGTXT={all:'כל החולצות במקום אחד: עונת 26/27 של הקבוצות הגדולות באירופה, וקולקציית רטרו של רגעים שלא נשכחים.',en:'הפרמייר ליג: מנצ׳סטר יונייטד, סיטי, ליברפול, טוטנהאם ואסטון וילה. עם אפשרות להדפסת שם ומספר.',es:'לה ליגה: ריאל מדריד, ברצלונה ואתלטיקו. הבית של הקלאסיקו.',it:'הסריה A: מילאן ויובנטוס, בית וחוץ. אדום-שחור, שחור-לבן.',de:'הבונדסליגה: באיירן, דורטמונד, לברקוזן ומנשנגלדבאך. היציעים הרועשים באירופה.',pt:'בנפיקה, הענקית של ליסבון. אדום מלא.',retro:'החולצות שכל אוהד זוכר: מונדיאלים, גמרים וקלאסיקות של שנות ה־90 וה־2000.'};
 function rMySize(){var cur=st.qs||rec().s;$('#mySize').innerHTML=SZ.map(function(z){var on=z.s===cur;return '<button class="pill chip-sm'+(on?' on':'')+'" data-qs="'+z.s+'" aria-pressed="'+on+'" style="min-width:48px;padding:0 10px">'+z.s+'</button>'}).join('')}
-function rGrid(){$('#lgIntro').textContent=LGTXT[st.lg]||'';var r=rec().s;$('#grid').innerHTML=P.filter(function(p){return st.lg==='all'||p.lg===st.lg}).map(function(p){return '<article class="card g-card fade"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'">'+photo(p)+'</button><strong style="font-size:15px;line-height:1.3">'+p.he+'</strong><div class="row"><span style="font-weight:800">₪'+f2(p.price)+'</span><button class="quick" data-quick="'+p.id+'" aria-label="הוספה מהירה של '+p.he+' במידה '+r+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'+r+'</button></div></article>'}).join('')}
+var SORT='rec';function sorted(a){a=a.slice();if(SORT==='lo')a.sort(function(x,y){return x.price-y.price});else if(SORT==='hi')a.sort(function(x,y){return y.price-x.price});else if(SORT==='new')a.sort(function(x,y){return (y.lg!=='retro')-(x.lg!=='retro')});return a}
+function rGrid(){$('#lgIntro').textContent=LGTXT[st.lg]||'';var r=rec().s;$('#grid').innerHTML=sorted(P.filter(function(p){return st.lg==='all'||p.lg===st.lg})).map(function(p){return '<article class="card g-card fade"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'">'+photo(p)+'</button><strong style="font-size:15px;line-height:1.3">'+p.he+'</strong><div class="row"><span style="font-weight:800">₪'+f2(p.price)+'</span><button class="quick" data-quick="'+p.id+'" aria-label="הוספה מהירה של '+p.he+' במידה '+r+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'+r+'</button></div></article>'}).join('')}
 function rKits(){var k=by(st.kit);$('#heroKit').innerHTML='<span class="hero-photo">'+photo(k)+'</span>';$('#heroKit').setAttribute('aria-label','פתיחת '+k.he);
 $('#studioKit').innerHTML=jersey(k,{stroke:1})+printed(k,'34px','150px');$('#kitName').textContent=k.he;$('#kitPrice').textContent=f2(k.price)}
 function rSwatches(){$('#swatches').innerHTML=P.map(function(p){var on=st.kit===p.id;return '<button class="sw'+(on?' on':'')+'" data-kit="'+p.id+'" aria-pressed="'+on+'" aria-label="'+p.he+'"><svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="'+p.c1+'"/><rect x="14" y="2" width="6" height="36" fill="'+p.c2+'"/><rect x="26" y="4" width="6" height="32" fill="'+p.c2+'"/></svg></button>'}).join('')}
@@ -569,11 +584,13 @@ function rCounts(){var n=st.cart.length;$$('.cartN').forEach(function(e){e.textC
 
 /* ---------- overlays ---------- */
 var ovBox=$('#ov'),cur='',lastFocus=null;
-function closeOv(){clearInterval(storyT);ovBox.innerHTML='';cur='';document.body.style.overflow='';if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
-function show(kind,html,side){lastFocus=document.activeElement;cur=kind;document.body.style.overflow='hidden';ovBox.innerHTML=(kind==='story'?'':'<button class="scrim" data-act="close" aria-label="סגירה"></button>')+html;var f=$('[autofocus]',ovBox)||$('button',ovBox);if(f)setTimeout(function(){try{f.focus({preventScroll:true})}catch(e){}},60)}
+function restorePages(){['fan','track','faq'].forEach(function(k){var sec=document.getElementById(k),home=document.getElementById('pg-'+k);if(sec&&home&&sec.parentNode!==home)home.appendChild(sec)})}
+function closeInner(){clearInterval(storyT);restorePages();ovBox.innerHTML='';cur='';document.body.style.overflow='';if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
+function closeOv(){var h=location.hash.slice(1);if(cur&&(h===cur||h.indexOf('p-')===0&&cur==='product'||h==='story'&&cur==='story')){history.back()}else closeInner()}
+function show(kind,html,side){restorePages();lastFocus=document.activeElement;cur=kind;document.body.style.overflow='hidden';ovBox.innerHTML=(kind==='story'?'':'<button class="scrim" data-act="close" aria-label="סגירה"></button>')+html;var f=$('[autofocus]',ovBox)||$('button',ovBox);if(f)setTimeout(function(){try{f.focus({preventScroll:true})}catch(e){}},60)}
 function head(t){return '<div class="sheet-head"><span class="disp" style="font-size:38px;line-height:1">'+t+'</span><button class="icon-btn" data-act="close" aria-label="סגירה">'+X+'</button></div>'}
 var pp=null,psz='',pprint=false;
-function openProduct(id){pp=by(id);psz=rec().s;pprint=false;rProduct()}
+function openProduct(id){pp=by(id);addRecent(id);psz=rec().s;pprint=false;rProduct()}
 function rProduct(){var p=pp,on=st.favs[p.id],idx=P.indexOf(p);
 var s1=P.filter(function(q){return q.lg===p.lg&&q.id!==p.id})[0]||P[0],s2=P.filter(function(q){return q.lg==='retro'&&q.hot&&q.id!==p.id&&q.id!==s1.id})[0];var sug=[s1,s2].filter(Boolean);
 show('product','<div class="sheet" role="dialog" aria-modal="true" aria-label="'+p.he+'"><span class="grab" aria-hidden="true"></span>'+
@@ -584,7 +601,7 @@ show('product','<div class="sheet" role="dialog" aria-modal="true" aria-label="'
 '<span style="position:absolute;bottom:10px;right:12px;background:rgba(10,11,10,.8);color:var(--fg);font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px">החליקו לגב ←</span></div>'+
 '<div class="row"><span style="font-size:24px;font-weight:800">₪'+f2(p.price)+'</span><span style="font-size:13px;color:var(--mut2)">המלצה לפי הגובה שלך: '+rec().s+'</span></div>'+
 '<div class="sizes" role="group" aria-label="בחירת מידה">'+SZ.map(function(z){var o=z.s===psz;return '<button class="pill'+(o?' on':'')+'" data-psz="'+z.s+'" aria-pressed="'+o+'" style="padding:0;font-size:13px;border-radius:12px">'+z.s+'</button>'}).join('')+'</div>'+
-'<div style="display:flex;flex-direction:column;gap:8px"><strong style="font-size:15px">גרסה</strong><div role="group" aria-label="גרסה" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="pill'+(pprint?'':' on')+'" data-pmode="0" aria-pressed="'+!pprint+'" style="border-radius:14px;min-height:56px;display:flex;flex-direction:column;justify-content:center;line-height:1.2">בלי הדפסה<small style="font-weight:600">₪'+f2(p.price)+'</small></button><button class="pill'+(pprint?' on':'')+'" data-pmode="1" aria-pressed="'+pprint+'" style="border-radius:14px;min-height:56px;display:flex;flex-direction:column;justify-content:center;line-height:1.2">עם שם ומספר<small style="font-weight:600">₪'+f2(p.price)+' + [מחיר]</small></button></div>'+(pprint?'<span style="font-size:13px;color:var(--mut)">יודפס: <b style="color:var(--fg)">'+esc(nameShow())+' '+esc(numShow())+'</b> · אפשר לשנות בסטודיו · מוכן תוך 2–4 ימי עסקים</span>':'')+'</div>'+
+'<div style="display:flex;flex-direction:column;gap:8px"><strong style="font-size:15px">גרסה</strong><div role="group" aria-label="גרסה" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="pill'+(pprint?'':' on')+'" data-pmode="0" aria-pressed="'+!pprint+'" style="border-radius:14px;min-height:56px;display:flex;flex-direction:column;justify-content:center;line-height:1.2">בלי הדפסה<small style="font-weight:600">₪'+f2(p.price)+'</small></button><button class="pill'+(pprint?' on':'')+'" data-pmode="1" aria-pressed="'+pprint+'" style="border-radius:14px;min-height:56px;display:flex;flex-direction:column;justify-content:center;line-height:1.2">עם שם ומספר<small style="font-weight:600">בתוספת תשלום</small></button></div>'+(pprint?'<span style="font-size:13px;color:var(--mut)">יודפס: <b style="color:var(--fg)">'+esc(nameShow())+' '+esc(numShow())+'</b> · אפשר לשנות בסטודיו · מוכן תוך 2–4 ימי עסקים</span>':'')+'</div>'+
 '<div style="display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="2" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><span>מגיע עד הבית תוך <b>10–18 ימי עסקים</b>, עם מספר מעקב</span></div>'+'<button class="btn btn-lime" data-act="padd" style="min-height:58px;font-size:17px">הוספה לסל · '+psz+' · ₪'+f2(p.price)+'</button>'+
 '<div style="display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px"><strong>קנו יחד ותקבלו משלוח חינם</strong>'+sug.map(function(q){return '<div class="row"><span class="li-thumb ph" style="width:52px;height:52px">'+photo(q)+'</span><span style="flex:1;font-weight:600;font-size:14px">'+q.he+'</span><span style="font-weight:800;font-size:14px">₪'+f2(q.price)+'</span><button class="quick" data-quick="'+q.id+'" aria-label="הוספה של '+q.he+'">+</button></div>'}).join('')+
 '<button class="btn btn-dark" data-pair="'+s1.id+'" style="border:1.5px solid var(--lime)">שתיהן לסל · ₪'+f2(p.price+s1.price)+' · משלוח חינם</button></div>'+
@@ -595,7 +612,9 @@ show('product','<div class="sheet" role="dialog" aria-modal="true" aria-label="'
 '</div></div>')}
 function listItem(p){return '<button class="line-item" data-open="'+p.id+'"><span class="li-thumb ph">'+photo(p)+'</span><span style="flex:1;display:flex;flex-direction:column"><strong>'+p.he+'</strong><span dir="ltr" style="font-size:12px;color:var(--mut2);text-align:right">'+p.en+'</span></span><span style="font-weight:800;color:var(--lime)">₪'+f2(p.price)+'</span></button>'}
 function openSearch(){show('search','<div class="sheet" role="dialog" aria-modal="true" aria-label="חיפוש" style="height:82vh;height:82dvh"><span class="grab" aria-hidden="true"></span><div style="display:flex;gap:8px;padding:14px 18px 8px;align-items:center"><label for="q" class="sr">חיפוש חולצה</label><input id="q" type="search" class="txt" autofocus placeholder="מילאן, ריאל, רטרו..." style="height:54px;border-radius:999px;border:1.5px solid var(--lime);padding:0 20px;font-size:17px"><button data-act="close" style="height:54px;padding:0 12px;border:none;background:none;color:var(--fg);font-weight:700">ביטול</button></div><div class="sheet-body" id="res" style="padding-top:4px"></div></div>');rRes('')}
-function rRes(q){q=q.trim().toLowerCase();var r=P.filter(function(p){return !q||(p.he+' '+p.en+' '+p.tag).toLowerCase().indexOf(q)>=0});$('#res').innerHTML='<span style="font-size:13px;color:var(--mut2)">'+r.length+' תוצאות</span>'+r.map(listItem).join('')}
+var ALIAS={mil:'milan ac מילן מילאנו רוסונרי',mila:'milan away מילן חוץ לבנה',rma:'real madrid ריאל מדריד מאדריד',rmab:'real goalkeeper שוער ריאל',fcb:'barca barcelona ברסה ברצלונה בארסה',fcb99:'barca barcelona ברסה ברצלונה בארסה centenary',atm:'atletico atlético אטלטיקו אתלטיקו',mun:'manchester united man utd יונייטד מנצסטר מנצ׳סטר',mci:'manchester city man city סיטי מנצסטר מנצ׳סטר',liv:'liverpool lfc ליבר ליברפול',avl:'aston villa וילה אסטון',tot:'tottenham spurs ספרס טוטנהאם',tota:'tottenham spurs ספרס טוטנהאם',bvb:'dortmund bvb דורט דורטמונד',lev:'leverkusen bayer לברקוזן באייר',bmg:'gladbach monchengladbach גלדבאך מנשנגלדבאך',fcbm:'bayern munich באירן באיירן מינכן',juv:'juve juventus יובה יובנטוס',juv97:'juve juventus יובה יובנטוס ורוד',int:'inter אינטר נראצורי',fio:'fiorentina פיורנטינה סגול',arg:'argentina messi ארגנטינה מסי',mex:'mexico מקסיקו',ned:'holland netherlands הולנד oranje',ger:'germany גרמניה',ben:'benfica בנפיקה'};
+function norm(x){return String(x).toLowerCase().replace(/[׳'"`\-·|]/g,'').replace(/\s+/g,' ').trim()}
+function rRes(q){q=q.trim().toLowerCase();var nq=norm(q),r=P.filter(function(p){var hay=norm(p.he+' '+p.en+' '+p.tag+' '+(ALIAS[p.id]||''));return !nq||nq.split(' ').every(function(w){return hay.indexOf(w)>=0})});$('#res').innerHTML='<span style="font-size:13px;color:var(--mut2)">'+r.length+' תוצאות</span>'+r.map(listItem).join('')}
 function openFavs(){var l=P.filter(function(p){return st.favs[p.id]});show('favs','<div class="sheet side" role="dialog" aria-modal="true" aria-label="מועדפים" style="height:70vh">'+head('מועדפים · '+l.length)+'<div class="sheet-body">'+(l.length?l.map(listItem).join(''):'<span style="color:var(--mut);text-align:center;padding:40px 0">לחצו על הלב בחולצה כדי לשמור אותה כאן.</span>')+'</div></div>')}
 function openCart(){var n=st.cart.length,sub=st.cart.reduce(function(s,i){return s+by(i.id).price},0),free=n>=2||sub>=179,prog=free?100:Math.min(100,n*50);
 var msg=n===0?'הוסיפו 2 חולצות וקבלו משלוח חינם':(free?'מעולה! המשלוח עליך חינם':'עוד חולצה אחת ותקבלו משלוח חינם');
@@ -603,11 +622,11 @@ show('cart','<div class="sheet side" role="dialog" aria-modal="true" aria-label=
 '<div style="padding:14px 20px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)"><span style="font-weight:700;font-size:14px">'+msg+'</span><progress value="'+prog+'" max="100" aria-label="התקדמות למשלוח חינם">'+prog+'%</progress></div>'+
 '<div class="sheet-body">'+(n?'':'<div style="padding:28px 0;text-align:center;color:var(--mut);display:flex;flex-direction:column;gap:10px;align-items:center"><span class="disp" style="font-size:48px;color:var(--fg)">היציע ריק</span>בחרו חולצה והתחילו לשיר.</div>')+
 st.cart.map(function(it){var p=by(it.id);return '<div class="line-item"><span class="li-thumb ph">'+photo(p)+'</span><span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px">'+p.he+'</strong><span style="color:var(--mut);font-size:13px">מידה '+it.size+(it.print?' · הדפסה: '+esc(it.print):'')+'</span><span style="font-weight:800">₪'+f2(p.price)+'</span></span><button class="icon-btn" data-rm="'+it.key+'" aria-label="הסרת '+p.he+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13"/></svg></button></div>'}).join('')+
-'<label class="toggle" style="border:1.5px dashed var(--lime)"><span style="display:flex;flex-direction:column"><strong>שליחה כמתנה</strong><span style="font-size:13px;color:var(--mut2)">עטיפה, ברכה, ובלי מחירים בחבילה · [מחיר עטיפה]</span></span><input type="checkbox" data-act="gift"'+(st.gift?' checked':'')+'></label>'+
+'<label class="toggle" style="border:1.5px dashed var(--lime)"><span style="display:flex;flex-direction:column"><strong>שליחה כמתנה</strong><span style="font-size:13px;color:var(--mut2)">עטיפה, ברכה, ובלי מחירים בחבילה · בתוספת תשלום</span></span><input type="checkbox" data-act="gift"'+(st.gift?' checked':'')+'></label>'+
 (st.gift?'<div class="fade" style="display:flex;flex-direction:column;gap:8px"><label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700">למי המתנה?<input class="txt" data-g="giftTo" value="'+esc(st.giftTo)+'" placeholder="שם המקבל"></label><label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700">ברכה<textarea class="txt" data-g="giftNote" rows="3" placeholder="מזל טוב! שתמיד תשיר מהיציע...">'+esc(st.giftNote)+'</textarea></label></div>':'')+
-'</div><div style="padding:14px 20px 20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px"><div class="row" style="font-size:14px;color:var(--mut)"><span>משלוח</span><span>'+(free?'חינם':'יחושב בקופה')+'</span></div><div class="row" style="font-size:20px;font-weight:800"><span>סה״כ</span><span>₪'+f2(sub)+'</span></div><span style="font-size:13px;color:var(--mut)">זמן משלוח: 10–18 ימי עסקים · הדפסה: עוד 2–4 ימים</span><button class="btn btn-lime" style="min-height:56px;font-size:17px" data-act="checkout">למעבר לתשלום</button>'+'<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">'+['כרטיס אשראי','Apple Pay','Bit','תשלומים [לפי הסליקה]'].map(function(x){return '<span style="font-size:12px;font-weight:700;border:1px solid var(--line2);border-radius:999px;padding:4px 10px;color:var(--mut)">'+x+'</span>'}).join('')+'</div>'+'<span style="text-align:center;color:var(--mut2);font-size:12px">קוד הנחה מזינים בקופה</span></div></div>',true)}
+'</div><div style="padding:14px 20px 20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px"><div class="row" style="font-size:14px;color:var(--mut)"><span>משלוח</span><span>'+(free?'חינם':'יחושב בקופה')+'</span></div><div class="row" style="font-size:20px;font-weight:800"><span>סה״כ</span><span>₪'+f2(sub)+'</span></div><span style="font-size:13px;color:var(--mut)">זמן משלוח: 10–18 ימי עסקים · הדפסה: עוד 2–4 ימים</span><button class="btn btn-lime" style="min-height:56px;font-size:17px" data-act="checkout">למעבר לתשלום</button>'+'<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">'+['כרטיס אשראי','Apple Pay','Bit','תשלומים'].map(function(x){return '<span style="font-size:12px;font-weight:700;border:1px solid var(--line2);border-radius:999px;padding:4px 10px;color:var(--mut)">'+x+'</span>'}).join('')+'</div>'+'<span style="text-align:center;color:var(--mut2);font-size:12px">קוד הנחה מזינים בקופה</span></div></div>',true)}
 var si=0,storyT=null;
-function openStory(i){si=i;rStory();clearInterval(storyT);storyT=setInterval(function(){step(1)},5000)}
+function openStory(i){si=i;go('story');clearInterval(storyT);storyT=setInterval(function(){step(1)},5000)}
 function step(d){var n=si+d;if(n>=ST.length){closeOv();return}si=Math.max(0,n);rStory();clearInterval(storyT);storyT=setInterval(function(){step(1)},5000)}
 function rStory(){var t=ST[si],k=by(t.kit);show('story','<div class="story" role="dialog" aria-modal="true" aria-label="סטורי: '+t.name+'"><div class="story-in"><div class="bars">'+ST.map(function(x,j){return '<span class="'+(j<si?'done':j===si?'cur':'')+'"><i></i></span>'}).join('')+'</div>'+
 '<div class="row" style="padding:12px 14px"><span style="display:flex;flex-direction:column"><strong>'+t.name+'</strong><span style="font-size:13px;color:var(--mut2)">'+t.city+'</span></span><button class="icon-btn" data-act="close" aria-label="סגירה" style="background:var(--card2);border:none">'+X+'</button></div>'+
@@ -642,20 +661,41 @@ c.fillStyle='#8E928A';c.font='700 30px Heebo, sans-serif';c.fillText('TERRACE CL
 c.fillStyle='#D4FF3A';c.fillRect(W-250,1255,46,30);c.fillRect(W-204,1235,46,50);c.fillRect(W-158,1215,46,70);c.fillStyle='#F3F1EA';c.beginPath();c.arc(W-226,1232,15,0,Math.PI*2);c.fill()}
 if(fanImg)finish(fanImg);else loadImg(IMG[k.id],finish)}
 
+
+/* ---------- routing: back button closes windows, #p-<id> links to a jersey ---------- */
+var PAGES={fan:'כרטיס אוהד',track:'מעקב הזמנה',faq:'שאלות נפוצות'};
+function openPage(k){show(k,'<div class="sheet side" role="dialog" aria-modal="true" aria-label="'+PAGES[k]+'" style="height:90vh;height:90dvh">'+head(PAGES[k])+'<div class="sheet-body" id="pgHost" style="padding:0"></div></div>');var sec=document.getElementById(k);$('#pgHost').appendChild(sec);if(k==='fan')drawFan()}
+function openMenu(){var L=[['en','ליגה אנגלית'],['es','ליגה ספרדית'],['it','ליגה איטלקית'],['de','בונדסליגה'],['pt','פורטוגל'],['retro','רטרו ונבחרות']];
+show('menu','<div class="sheet side" role="dialog" aria-modal="true" aria-label="תפריט" style="height:88vh;height:88dvh">'+head('תפריט')+'<div class="sheet-body"><strong style="color:var(--mut2);font-size:13px">חנות</strong>'+L.map(function(l){return '<button class="line-item" data-mlg="'+l[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+l[1]+'</button>'}).join('')+
+'<strong style="color:var(--mut2);font-size:13px;margin-top:8px">עוד</strong>'+[['#print','סטודיו הדפסה'],['#size','מצא מידה'],['#map','מפת אצטדיונים'],['#gift','מתנה לאוהד']].map(function(x){return '<button class="line-item" data-mjump="'+x[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+x[1]+'</button>'}).join('')+
+[['fan','כרטיס אוהד לסטורי'],['track','מעקב הזמנה'],['faq','שאלות נפוצות'],['deals','מבצעים'],['install','הוספה למסך הבית']].map(function(x){return '<button class="line-item" data-go="'+x[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+x[1]+'</button>'}).join('')+'</div></div>')}
+var OV={menu:openMenu,cart:function(){openCart()},favs:openFavs,search:openSearch,deals:function(){openDeals()},team:openTeam,install:openInstall,story:function(){rStory()},fan:function(){openPage('fan')},track:function(){openPage('track')},faq:function(){openPage('faq')}};
+function go(k){$('#toastBox').innerHTML='';if(location.hash==='#'+k)route();else location.hash=k}
+function route(){var h=decodeURIComponent(location.hash.slice(1));
+ if(h.indexOf('p-')===0){var id=h.slice(2);if(P.some(function(p){return p.id===id})){openProduct(id);return}}
+ if(OV[h]){OV[h]();return}
+ if(cur)closeInner()}
+window.addEventListener('hashchange',route);
+document.addEventListener('click',function(e){var t=e.target.closest('[data-go],[data-mlg],[data-mjump]');if(!t)return;e.preventDefault();
+ if(t.hasAttribute('data-go')){go(t.getAttribute('data-go'));return}
+ if(t.hasAttribute('data-mlg')){st.lg=t.getAttribute('data-mlg');rChips();rGrid();history.replaceState(null,'',location.pathname+location.search);closeInner();setTimeout(function(){document.getElementById('shopGrid').scrollIntoView({behavior:'smooth'})},50);return}
+ if(t.hasAttribute('data-mjump')){var tg=t.getAttribute('data-mjump');history.replaceState(null,'',location.pathname+location.search);closeInner();setTimeout(function(){var el=document.querySelector(tg);el&&el.scrollIntoView({behavior:'smooth'})},50)}});
+document.addEventListener('keydown',function(e){if(e.key!=='Tab'||!cur)return;var f=$$('#ov button,#ov a[href],#ov input,#ov textarea,#ov select').filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});
+
 /* ---------- actions ---------- */
 var tT=null;
-function toast(m){clearTimeout(tT);$('#toastBox').innerHTML='<div class="toast" role="status"><span style="padding-right:8px">'+esc(m)+'</span><button class="btn btn-dark" data-act="cart" style="min-height:36px;padding:0 14px;font-size:14px">לסל</button></div>';tT=setTimeout(function(){$('#toastBox').innerHTML=''},2600);try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}}
-function add(id,size,print){var p=by(id);st.cart.push({key:String(Date.now())+Math.floor(Math.random()*1e4),id:id,size:size,print:print||''});rCounts();toast(p.he+' · '+size+' נוסף לסל');if(typeof cartNudge==='function')cartNudge()}
-function toggleFav(id){if(st.favs[id])delete st.favs[id];else st.favs[id]=1;rHot();if(cur==='product')rProduct();else if(cur==='favs')openFavs()}
+function toast(m){clearTimeout(tT);$('#toastBox').innerHTML='<div class="toast" role="status"><span style="padding-right:8px">'+esc(m)+'</span><button class="btn btn-dark" data-go="cart" style="min-height:36px;padding:0 14px;font-size:14px">לסל</button></div>';tT=setTimeout(function(){$('#toastBox').innerHTML=''},2600);try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}}
+function add(id,size,print){var p=by(id);st.cart.push({key:String(Date.now())+Math.floor(Math.random()*1e4),id:id,size:size,print:print||''});rCounts();save();toast(p.he+' · '+size+' נוסף לסל');if(typeof cartNudge==='function')cartNudge()}
+function toggleFav(id){if(st.favs[id])delete st.favs[id];else st.favs[id]=1;save();rHot();if(cur==='product')rProduct();else if(cur==='favs')openFavs()}
 document.addEventListener('click',function(e){var t=e.target.closest('[data-qs],[data-pmode],[data-dec],[data-team],[data-pnav],[data-pair],[data-act],[data-open],[data-quick],[data-fav],[data-lg],[data-kit],[data-fit],[data-stad],[data-story],[data-psz],[data-rm]');if(!t)return;
 var a=t.getAttribute('data-act');
 if(t.hasAttribute('data-qs')){st.qs=t.getAttribute('data-qs');rMySize();rGrid();rSize();toast('המידה שלך: '+st.qs);return}
 if(t.hasAttribute('data-pmode')){pprint=t.getAttribute('data-pmode')==='1';rProduct();return}
 if(t.hasAttribute('data-dec')){st.dec=t.getAttribute('data-dec');rDec();return}
 if(t.hasAttribute('data-team')){st.team=t.getAttribute('data-team');try{localStorage.setItem('tcTeam',st.team||'-')}catch(x){}if(st.team){st.kit=st.team;rKits();rSwatches();drawFan()}rTeam();closeOv();$('#promoBox').innerHTML='';if(st.team)toast('נבחרה '+by(st.team).he.split(' · ')[0]);return}
-if(t.hasAttribute('data-pnav')){var ix=(P.indexOf(pp)+(+t.getAttribute('data-pnav'))+P.length)%P.length;pp=P[ix];pprint=false;rProduct();return}
+if(t.hasAttribute('data-pnav')){var ix=(P.indexOf(pp)+(+t.getAttribute('data-pnav'))+P.length)%P.length;history.replaceState(null,'','#p-'+P[ix].id);openProduct(P[ix].id);return}
 if(t.hasAttribute('data-pair')){add(pp.id,psz,pprint?nameShow()+' '+numShow():'');add(t.getAttribute('data-pair'),psz);closeOv();toast('2 חולצות בסל · משלוח חינם');return}
-if(t.hasAttribute('data-open')){e.preventDefault();clearInterval(storyT);openProduct(t.getAttribute('data-open'));return}
+if(t.hasAttribute('data-open')){e.preventDefault();clearInterval(storyT);var oid=t.getAttribute('data-open');if(cur==='story'||cur==='product'){history.replaceState(null,'','#p-'+oid);openProduct(oid)}else go('p-'+oid);return}
 if(t.hasAttribute('data-quick')){add(t.getAttribute('data-quick'),rec().s);return}
 if(t.hasAttribute('data-fav')){toggleFav(t.getAttribute('data-fav'));return}
 if(t.hasAttribute('data-lg')){st.lg=t.getAttribute('data-lg');rChips();rGrid();return}
@@ -664,31 +704,31 @@ if(t.hasAttribute('data-fit')){st.fit=t.getAttribute('data-fit');st.qs='';rSize(
 if(t.hasAttribute('data-stad')){st.stad=+t.getAttribute('data-stad');rMap();return}
 if(t.hasAttribute('data-story')){openStory(+t.getAttribute('data-story'));return}
 if(t.hasAttribute('data-psz')){psz=t.getAttribute('data-psz');rProduct();return}
-if(t.hasAttribute('data-rm')){var k=t.getAttribute('data-rm');st.cart=st.cart.filter(function(i){return i.key!==k});rCounts();openCart();return}
+if(t.hasAttribute('data-rm')){var k=t.getAttribute('data-rm');st.cart=st.cart.filter(function(i){return i.key!==k});rCounts();save();openCart();return}
 switch(a){
 case 'close':closeOv();break;
-case 'team':openTeam();break;
+case 'team':go('team');break;
 case 'install':openInstall();break;
 case 'search':openSearch();break;
 case 'favs':openFavs();break;
 case 'cart':$('#toastBox').innerHTML='';openCart();break;
-case 'giftStart':st.gift=true;openCart();break;
+case 'giftStart':st.gift=true;save();go('cart');break;
 case 'addCustom':add(st.kit,rec().s,nameShow()+' '+numShow());break;
 case 'padd':add(pp.id,psz,pprint?nameShow()+' '+numShow():'');closeOv();break;
 case 'snext':step(1);break;
 case 'sprev':step(-1);break;
 case 'checkout':toast('בגרסה האמיתית: מעבר לקופה של Shopify');break;
 }});
-document.addEventListener('change',function(e){var a=e.target.getAttribute('data-act');if(a==='pprint'){pprint=e.target.checked;rProduct()}else if(a==='gift'){st.gift=e.target.checked;openCart()}});
+document.addEventListener('change',function(e){var a=e.target.getAttribute('data-act');if(a==='pprint'){pprint=e.target.checked;rProduct()}else if(a==='gift'){st.gift=e.target.checked;save();openCart()}});
 document.addEventListener('input',function(e){var t=e.target;
 if(t.id==='q'){rRes(t.value)}
-else if(t.id==='nameIn'){var v=t.value.replace(/[^A-Za-z .'-]/g,'').toUpperCase().slice(0,12);if(v!==t.value)t.value=v;st.name=v;rKits();drawFan()}
-else if(t.id==='numIn'){var n=t.value.replace(/\D/g,'').slice(0,2);if(n!==t.value)t.value=n;st.num=n;rKits();drawFan()}
+else if(t.id==='nameIn'){var v=t.value.replace(/[^A-Za-z .'-]/g,'').toUpperCase().slice(0,12);if(v!==t.value)t.value=v;st.name=v;rKits();drawFan();save()}
+else if(t.id==='numIn'){var n=t.value.replace(/\D/g,'').slice(0,2);if(n!==t.value)t.value=n;st.num=n;rKits();drawFan();save()}
 else if(t.id==='hIn'){st.h=+t.value;st.qs='';rSize();rGrid();rMySize()}
-else if(t.getAttribute('data-g')){st[t.getAttribute('data-g')]=t.value}});
+else if(t.getAttribute('data-g')){st[t.getAttribute('data-g')]=t.value;save()}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur)closeOv();if(cur==='story'){if(e.key==='ArrowLeft')step(1);if(e.key==='ArrowRight')step(-1)}});
 $('#join').addEventListener('submit',function(e){e.preventDefault();toast('ברוכים הבאים למועדון! הקוד נשלח למייל')});
-$('#heroKit').addEventListener('click',function(){openProduct(st.kit)});
+$('#heroKit').addEventListener('click',function(){go('p-'+st.kit)});
 
 /* swipe down to close sheet */
 var sy=null;document.addEventListener('touchstart',function(e){var s=e.target.closest('.sheet');if(s&&!e.target.closest('.sheet-body'))sy=e.touches[0].clientY;else sy=null},{passive:true});
@@ -700,13 +740,13 @@ var hdr=$('#hdr'),ps=$('#parStands'),pp2=$('#parPitch'),hb=$('#heroBody'),tickin
 function onScroll(){var y=window.scrollY||0;hdr.classList.toggle('small',y>40);if(reduce||y>950)return;ps.style.transform='translate3d(0,'+(y*.18)+'px,0)';pp2.style.transform='translate3d(0,'+(y*.06)+'px,0)';hb.style.transform='translate3d(0,'+(y*.35)+'px,0)';hb.style.opacity=Math.max(0,1-y/650)}
 window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;onScroll()})}},{passive:true});
 
-rStories();rHot();rChips();rGrid();rKits();rSwatches();rSize();rMap();rCounts();
+load();rStories();rHot();rChips();rGrid();rKits();rSwatches();rSize();rMap();rCounts();
 document.addEventListener('submit',function(e){var f=e.target;if(f.id==='trackF'){e.preventDefault();track($('#ord').value)}else if(f.hasAttribute('data-notify')){e.preventDefault();toast('נעדכן אותך במייל כשהמידה תחזור')}});
 $('#fanFile').addEventListener('change',function(e){var f=e.target.files&&e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){loadImg(r.result,function(im){fanImg=im;drawFan();toast('הכרטיס מוכן')})};r.readAsDataURL(f)});
 document.addEventListener('load',function(e){var t=e.target;if(t&&t.tagName==='IMG'){t.classList.add('ld');t.parentNode&&t.parentNode.classList.add('done')}},true);
 setInterval(function(){$$('.thumb img:not(.ld),.ph img:not(.ld)').forEach(function(i){if(i.complete&&i.naturalWidth){i.classList.add('ld');i.parentNode.classList.add('done')}})},700);
 try{var sv=localStorage.getItem('tcTeam');if(sv){st.team=sv==='-'?'':sv;if(st.team)st.kit=st.team}}catch(x){}
-$$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});rDec();rTeam();rMySize();
+$$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});rDec();rTeam();rMySize();rRecent();$('#hIn').value=st.h;$('#nameIn').value=st.name;$('#numIn').value=st.num;$('#sortSel').addEventListener('change',function(e){SORT=e.target.value;rGrid()});if(location.hash.length>1)route();
 /* ---------- promos ---------- */
 var DEALS=[
 {key:'ship',img:'mil',badge:'חינם',t:'2 חולצות = משלוח חינם',d:'בקנייה של 2 חולצות או מעל 179 ₪. אתה ועוד חבר?',cta:'לבחירת זוג',act:'shop'},
@@ -725,10 +765,10 @@ function startPromos(){clearInterval(pTimer);setTimeout(tryPromo,25000);pTimer=s
 function tryPromo(){if(pCount>=2){clearInterval(pTimer);return}if(Date.now()-lastScroll<1500){setTimeout(tryPromo,3000);return}pCount++;nextPromo()}
 function cartNudge(){if(st.cart.length===1&&!pShown.nudge){var p=by(st.cart[0].id),q=P.filter(function(x){return x.lg===p.lg&&x.id!==p.id})[0]||P[1];setTimeout(function(){showPromo({key:'nudge',img:q.id,badge:'+1',t:'עוד אחת וזה חינם',d:'הוסיפו את '+q.he+' והמשלוח עלינו.',cta:'הוספה לסל',act:'add:'+q.id})},2800)}}
 function openDeals(){show('deals','<div class="sheet side" role="dialog" aria-modal="true" aria-label="מבצעים" style="height:78vh">'+head('המבצעים')+'<div class="sheet-body">'+DEALS.map(function(dl){return '<div class="deal"><span class="big">'+dl.badge+'</span><span style="flex:1;display:flex;flex-direction:column;gap:2px"><strong>'+dl.t+(dl.demo?' <span class="demo-tag">לדוגמה</span>':'')+'</strong><span style="color:var(--mut);font-size:13px">'+dl.d+'</span></span><button class="quick" data-deal="'+dl.act+'" aria-label="'+dl.cta+'">←</button></div>'}).join('')+'<span style="font-size:12px;color:var(--mut2)">מבצעים שמסומנים "לדוגמה" הם רעיונות. בעל החנות קובע אם להפעיל אותם ובאיזה אחוז.</span></div></div>')}
-document.addEventListener('click',function(e){var t=e.target.closest('[data-deal],[data-act="pclose"],[data-act="deals"]');if(!t)return;
+document.addEventListener('click',function(e){var t=e.target.closest('[data-deal],[data-act="pclose"],[data-go="deals"]');if(!t)return;
 if(t.getAttribute('data-act')==='pclose'){hidePromo();return}
-if(t.getAttribute('data-act')==='deals'){hidePromo();openDeals();return}
-var a=t.getAttribute('data-deal');hidePromo();if(cur)closeOv();
+if(t.getAttribute('data-go')==='deals'){hidePromo();return}
+var a=t.getAttribute('data-deal');hidePromo();if(cur){history.replaceState(null,'',location.pathname+location.search);closeInner()}
 if(a==='shop')location.hash='#shop';else if(a==='retro')location.hash='#retro';else if(a==='print')location.hash='#print';
 else if(a==='join'){location.hash='#join';setTimeout(function(){try{$('#em').focus({preventScroll:true})}catch(x){}},500)}
 else if(a.indexOf('add:')===0){add(a.slice(4),rec().s)}});
