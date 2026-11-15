@@ -422,7 +422,7 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 <section id="shop" class="steps" style="padding:56px 0 24px">
   
   <div class="wrap" style="padding-top:48px;display:flex;flex-direction:column;gap:18px">
-    <h2 class="disp h2">כל החולצות</h2>
+    <h2 class="disp h2">בחרו את הליגה שלכם</h2>
   </div>
   <div class="rail" id="chips" role="group" aria-label="סינון לפי ליגה" style="gap:8px;margin-top:14px"></div>
   <div class="wrap row" style="justify-content:flex-start;gap:10px;margin-bottom:6px"><label for="sortSel" style="font-size:14px;font-weight:700">מיון:</label><select id="sortSel" class="txt" style="height:44px;width:auto;padding:0 12px;border-radius:999px"><option value="rec">מומלץ</option><option value="new">חדש קודם</option><option value="lo">מחיר: מהנמוך</option><option value="hi">מחיר: מהגבוה</option></select></div>
@@ -671,7 +671,7 @@ function stadium(t,id){return '<svg viewBox="0 0 600 400" role="img" aria-label=
 function rStories(){$('#stories').innerHTML='<button class="story-btn" data-act="team"><span class="story-ring" style="background:var(--line2)"><span style="font-family:var(--disp);font-size:40px;color:var(--lime)">+</span></span><small>הקבוצה שלי</small></button>'+ST.map(function(t,i){var k=by(t.kit);return '<button class="story-btn" data-story="'+i+'"><span class="story-ring"><span class="ph">'+photo(k)+'</span></span><small>'+t.short+'</small></button>'}).join('')}
 function favBtn(p){var on=st.favs[p.id];return '<button class="icon-btn fav'+(on?' on':'')+'" data-fav="'+p.id+'" aria-pressed="'+(on?'true':'false')+'" aria-label="מועדפים: '+p.he+'">'+HEART+'</button>'}
 function rHot(){$('#hot').innerHTML=P.filter(function(p){return p.hot}).map(function(p){return '<article class="card hot-card"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'"><span class="tag">'+p.tag+'</span>'+photo(p)+'</button><div class="row"><span style="display:flex;flex-direction:column"><strong style="font-size:16px">'+p.he+'</strong><span style="font-weight:800;color:var(--lime)">₪'+f2(p.price)+'</span></span>'+favBtn(p)+'</div></article>'}).join('')}
-var LG=[['all','הכל'],['en','אנגליה'],['es','ספרד'],['it','איטליה'],['de','גרמניה'],['pt','פורטוגל'],['retro','רטרו ונבחרות']];
+var LG=[['all','כל החולצות'],['en','ליגה אנגלית'],['es','ליגה ספרדית'],['it','ליגה איטלקית'],['de','ליגה גרמנית'],['pt','ליגה פורטוגלית'],['retro','רטרו ונבחרות']];
 function rChips(){$('#chips').innerHTML=LG.map(function(l){var n=P.filter(function(p){return l[0]==='all'||p.lg===l[0]}).length,on=st.lg===l[0];return '<button class="pill'+(on?' on':'')+'" data-lg="'+l[0]+'" aria-pressed="'+on+'">'+l[1]+'</button>'}).join('')}
 var LGTXT={all:'26 חולצות. עונה חדשה, קלאסיקות רטרו, ושם על הגב. בוחרים, מדפיסים, עולים ליציע.',en:'פרמייר ליג. הקצב הכי מהיר בעולם, והחולצות של יונייטד, סיטי, ליברפול, טוטנהאם ווילה.',es:'לה ליגה. כדורגל של קסמים: ריאל, ברסה ואתלטיקו, בית ושוער.',it:'סריה A. אדום־שחור או שחור־לבן. אין באמצע.',de:'בונדסליגה. יציעים מלאים, קהל שלא מפסיק לשיר, ושלוש חולצות שמרגישים.',pt:'בנפיקה. אדום מלא, מליסבון באהבה.',retro:'הרגעים שעשו היסטוריה: מונדיאלים, גמרים, ו־90s שלא יוצאים מהאופנה.'};
 function rMySize(){var cur=st.qs||rec().s;$('#mySize').innerHTML=SZ.map(function(z){var on=z.s===cur;return '<button class="pill chip-sm'+(on?' on':'')+'" data-qs="'+z.s+'" aria-pressed="'+on+'" style="min-width:48px;padding:0 10px">'+z.s+'</button>'}).join('')}
