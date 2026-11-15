@@ -371,7 +371,7 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
   <div class="rail" id="chips" role="group" aria-label="סינון לפי ליגה" style="gap:8px;margin-top:14px"></div>
   <div class="wrap row" style="justify-content:flex-start;gap:10px;margin-bottom:6px"><label for="sortSel" style="font-size:14px;font-weight:700">מיון:</label><select id="sortSel" class="txt" style="height:44px;width:auto;padding:0 12px;border-radius:999px"><option value="rec">מומלץ</option><option value="new">חדש קודם</option><option value="lo">מחיר: מהנמוך</option><option value="hi">מחיר: מהגבוה</option></select></div>
   <p class="wrap" id="lgIntro" style="margin:4px 0 10px;color:var(--mut);font-size:15px;line-height:1.6;max-width:720px"></p>
-  <div class="wrap row" style="justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:12px"><strong style="font-size:14px">המידה שלי להוספה מהירה:</strong><div id="mySize" role="group" aria-label="המידה שלי" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
+  <div class="wrap row" style="justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:12px"><strong style="font-size:14px">המידה שלך ל־+ מהיר:</strong><div id="mySize" role="group" aria-label="המידה שלי" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
   <div class="wrap" id="shopGrid"><div class="grid" id="grid" style="margin-top:8px"></div></div>
 </section>
 
@@ -598,7 +598,7 @@ function favBtn(p){var on=st.favs[p.id];return '<button class="icon-btn fav'+(on
 function rHot(){$('#hot').innerHTML=P.filter(function(p){return p.hot}).map(function(p){return '<article class="card hot-card"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'"><span class="tag">'+p.tag+'</span>'+photo(p)+'</button><div class="row"><span style="display:flex;flex-direction:column"><strong style="font-size:16px">'+p.he+'</strong><span style="font-weight:800;color:var(--lime)">₪'+f2(p.price)+'</span></span>'+favBtn(p)+'</div></article>'}).join('')}
 var LG=[['all','הכל'],['en','אנגליה'],['es','ספרד'],['it','איטליה'],['de','גרמניה'],['pt','פורטוגל'],['retro','רטרו ונבחרות']];
 function rChips(){$('#chips').innerHTML=LG.map(function(l){var n=P.filter(function(p){return l[0]==='all'||p.lg===l[0]}).length,on=st.lg===l[0];return '<button class="pill'+(on?' on':'')+'" data-lg="'+l[0]+'" aria-pressed="'+on+'">'+l[1]+' · '+n+'</button>'}).join('')}
-var LGTXT={all:'כל החולצות במקום אחד: עונת 26/27 של הקבוצות הגדולות באירופה, וקולקציית רטרו של רגעים שלא נשכחים.',en:'הפרמייר ליג: מנצ׳סטר יונייטד, סיטי, ליברפול, טוטנהאם ואסטון וילה. עם אפשרות להדפסת שם ומספר.',es:'לה ליגה: ריאל מדריד, ברצלונה ואתלטיקו. הבית של הקלאסיקו.',it:'הסריה A: מילאן ויובנטוס, בית וחוץ. אדום-שחור, שחור-לבן.',de:'הבונדסליגה: באיירן, דורטמונד, לברקוזן ומנשנגלדבאך. היציעים הרועשים באירופה.',pt:'בנפיקה, הענקית של ליסבון. אדום מלא.',retro:'החולצות שכל אוהד זוכר: מונדיאלים, גמרים וקלאסיקות של שנות ה־90 וה־2000.'};
+var LGTXT={all:'26 חולצות. עונה חדשה, קלאסיקות רטרו, ושם על הגב. בוחרים, מדפיסים, עולים ליציע.',en:'פרמייר ליג. הקצב הכי מהיר בעולם, והחולצות של יונייטד, סיטי, ליברפול, טוטנהאם ווילה.',es:'לה ליגה. כדורגל של קסמים: ריאל, ברסה ואתלטיקו, בית ושוער.',it:'סריה A. אדום־שחור או שחור־לבן. אין באמצע.',de:'בונדסליגה. יציעים מלאים, קהל שלא מפסיק לשיר, ושלוש חולצות שמרגישים.',pt:'בנפיקה. אדום מלא, מליסבון באהבה.',retro:'הרגעים שעשו היסטוריה: מונדיאלים, גמרים, ו־90s שלא יוצאים מהאופנה.'};
 function rMySize(){var cur=st.qs||rec().s;$('#mySize').innerHTML=SZ.map(function(z){var on=z.s===cur;return '<button class="pill chip-sm'+(on?' on':'')+'" data-qs="'+z.s+'" aria-pressed="'+on+'" style="min-width:48px;padding:0 10px">'+z.s+'</button>'}).join('')}
 var SORT='rec';function sorted(a){a=a.slice();if(SORT==='lo')a.sort(function(x,y){return x.price-y.price});else if(SORT==='hi')a.sort(function(x,y){return y.price-x.price});else if(SORT==='new')a.sort(function(x,y){return (y.lg!=='retro')-(x.lg!=='retro')});return a}
 function rGrid(){$('#lgIntro').textContent=LGTXT[st.lg]||'';var r=rec().s;$('#grid').innerHTML=sorted(P.filter(function(p){return st.lg==='all'||p.lg===st.lg})).map(function(p){return '<article class="card g-card fade"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'">'+photo(p)+'</button><strong style="font-size:15px;line-height:1.3">'+p.he+'</strong><div class="row"><span style="font-weight:800">₪'+f2(p.price)+'</span><button class="quick" data-quick="'+p.id+'" aria-label="הוספה מהירה של '+p.he+' במידה '+r+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'+r+'</button></div></article>'}).join('')}
@@ -820,7 +820,7 @@ try{var sv=localStorage.getItem('tcTeam');if(sv){st.team=sv==='-'?'':sv;if(st.te
 $$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});(function(){var r=document.documentElement.style;r.setProperty('--bg-pitch','url('+BG.pitch+')');r.setProperty('--bg-ball','url('+BG.ball+')');$$('img[data-bg]').forEach(function(im){im.loading='lazy';im.decoding='async';im.src=BG[im.getAttribute('data-bg')]});var hi=$('#heroImg');function pick(){var m=window.matchMedia('(max-width:820px)').matches;var src=m?BG.heroM:BG.hero;if(hi.getAttribute('src')!==src)hi.src=src}pick();window.addEventListener('resize',pick)})();rDec();rTeam();rMySize();rRecent();$('#hIn').value=st.h;$('#nameIn').value=st.name;$('#numIn').value=st.num;$('#sortSel').addEventListener('change',function(e){SORT=e.target.value;rGrid()});if(location.hash.length>1)route();
 /* ---------- promos ---------- */
 var DEALS=[
-{key:'ship',img:'mil',badge:'חינם',t:'2 חולצות = משלוח חינם',d:'בקנייה של 2 חולצות או מעל 179 ₪. אתה ועוד חבר?',cta:'לבחירת זוג',act:'shop'},
+{key:'ship',img:'mil',badge:'חינם',t:'2 חולצות = משלוח חינם',d:'בקנייה של 2 חולצות או מעל 179 ₪. אתה ועוד חבר?',cta:'לצמד מנצח',act:'pair'},
 {key:'join',img:'rma',badge:'10%',t:'10% להזמנה הראשונה',d:'מצטרפים למועדון ומקבלים קוד הנחה למייל.',cta:'אני רוצה',act:'join'},
 {key:'retro',img:'juv97',badge:'[X]%',t:'שבוע הרטרו',d:'הקלאסיקות של שנות ה־90 במחיר מיוחד.',cta:'לרטרו',act:'retro',demo:1},
 {key:'three',img:'fcbm',badge:'3=',t:'3 חולצות במחיר מיוחד',d:'לוקחים שלוש ומשלמים פחות. מושלם לאחים, לחברים או לקבוצה.',cta:'לחנות',act:'shop',demo:1},
@@ -841,7 +841,7 @@ document.addEventListener('click',function(e){var t=e.target.closest('[data-deal
 if(t.getAttribute('data-act')==='pclose'){hidePromo();return}
 if(t.getAttribute('data-go')==='deals'){hidePromo();return}
 var a=t.getAttribute('data-deal');hidePromo();if(cur){history.replaceState(null,'',location.pathname+location.search);closeInner()}
-if(a==='shop')location.hash='#shop';else if(a==='retro')location.hash='#retro';else if(a==='print')location.hash='#print';
+if(a==='shop')location.hash='#shop';else if(a==='pair')go('pair');else if(a==='retro')location.hash='#retro';else if(a==='print')location.hash='#print';
 else if(a==='join'){location.hash='#join';setTimeout(function(){try{$('#em').focus({preventScroll:true})}catch(x){}},500)}
 else if(a.indexOf('add:')===0){add(a.slice(4),rec().s)}});
 startPromos();
