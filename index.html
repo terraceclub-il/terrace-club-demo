@@ -25,7 +25,7 @@ h1,h2,h3{margin:0}
 .h2{font-size:clamp(52px,7vw,84px)}
 .eyebrow{color:var(--lime);font-weight:700;font-size:14px;letter-spacing:.08em}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.btn{min-height:52px;border:none;border-radius:999px;padding:0 26px;font-weight:800;font-size:16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn{background:transparent;color:var(--fg);min-height:52px;border:none;border-radius:999px;padding:0 26px;font-weight:800;font-size:16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
 .btn-lime{background:var(--lime);color:var(--ink)}
 .btn-dark{background:var(--ink);color:var(--lime)}
 .btn-ghost{background:rgba(10,11,10,.7);color:var(--fg);border:1.5px solid var(--fg)}
@@ -261,6 +261,34 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 .bgball::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,11,10,.96) 0%,rgba(10,11,10,.85) 50%,rgba(10,11,10,.2) 100%),var(--bg-ball) left 30%/cover no-repeat}
 .bgpitch-dim{background:linear-gradient(rgba(10,11,10,.88),rgba(10,11,10,.94)),var(--bg-pitch) center/cover no-repeat!important}
 @media (max-width:820px){.bgball::before{background:linear-gradient(180deg,rgba(10,11,10,.55) 0%,rgba(10,11,10,.95) 70%),var(--bg-ball) center 30%/cover no-repeat}}
+
+.collage{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:260px 260px;gap:12px}
+.ctile{position:relative;border-radius:26px;overflow:hidden;display:block;color:#fff;text-decoration:none;isolation:isolate;background:#111}
+.ctile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1);z-index:-2}
+.ctile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.82) 100%)}
+@media (hover:hover){.ctile:hover img{transform:scale(1.06)}}
+.ct-a{grid-row:1/3}
+.ct-a img{object-position:center 60%}.ct-b img{object-position:center 70%}.ct-c img{object-position:center 65%}
+.cin{position:absolute;right:20px;left:20px;bottom:18px;display:flex;flex-direction:column;gap:6px}
+.cin small{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--lime)}
+.cin b{font-family:var(--disp);font-weight:700;font-size:clamp(40px,4.6vw,64px);line-height:.85}
+.ct-b .cin b,.ct-c .cin b{font-size:clamp(30px,3.4vw,46px)}
+.cin i{font-style:normal;font-weight:800;font-size:14px}
+.quizcta{margin-top:12px;width:100%;position:relative;overflow:hidden;border:1.5px solid var(--lime);border-radius:22px;min-height:96px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;background:#0E100E;color:var(--fg);text-align:right;isolation:isolate}
+.qbg{position:absolute;inset:0;z-index:-1;opacity:.3;overflow:hidden}.qbg img{width:100%;height:100%;object-fit:cover;object-position:center 48%}
+.qtx{display:flex;flex-direction:column;gap:2px}.qtx small{color:var(--mut);font-size:13px;font-weight:600}.qtx b{font-family:var(--disp);font-weight:700;font-size:38px;line-height:.9}
+.qgo{width:52px;height:52px;border-radius:26px;background:var(--lime);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;flex:none}
+@media (max-width:820px){.collage{grid-template-columns:1fr 1fr;grid-template-rows:300px 210px}.ct-a{grid-column:1/3;grid-row:1/2}.cin{right:14px;left:14px;bottom:14px}}
+.stadph{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/2;background:#111}
+.stadph img{width:100%;height:100%;object-fit:cover;object-position:center 65%;display:block}
+.stadph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6))}
+.stadtag{position:absolute;bottom:10px;right:12px;z-index:1;font-size:12px;font-weight:800;color:#fff;background:rgba(10,11,10,.6);padding:4px 10px;border-radius:999px}
+.stadill{border-radius:18px;overflow:hidden;background:linear-gradient(rgba(10,11,10,.55),rgba(10,11,10,.75)),var(--bg-pitch) center/cover}
+.stadill svg{background:transparent!important;display:block}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qopts button{min-height:64px;border-radius:18px;border:1.5px solid var(--line2);background:var(--card);color:var(--fg);font-family:inherit;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.qopts button i{width:18px;height:18px;border-radius:9px;display:inline-block;border:2px solid rgba(255,255,255,.3)}
+.qsteps{display:flex;gap:6px}.qsteps span{flex:1;height:4px;border-radius:2px;background:var(--line2)}.qsteps span.on{background:var(--lime)}
 </style>
 </head>
 <body>
@@ -303,7 +331,7 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
   <div class="rail" id="hot" style="margin-top:18px"></div>
   <div id="recentBox" hidden><div class="wrap" style="margin-top:22px"><strong style="font-size:17px">נצפו לאחרונה</strong></div><div class="rail" id="recent" style="margin-top:10px"></div></div>
 </section>
-<section class="wrap" aria-label="מצב משחק" style="padding-top:10px">
+<section class="wrap" aria-label="מצב משחק" style="padding-top:10px" hidden>
   <div class="card match">
     <span class="ph mini"><img data-img="mil" alt=""></span>
     <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:2px"><span class="eyebrow" style="font-size:12px">מצב משחק · דוגמה</span><strong style="font-size:18px">דרבי מילאנו: מילאן נגד אינטר</strong><span style="color:var(--mut2);font-size:13px">[תאריך ושעה] · בעל החנות מעדכן לפני כל משחק גדול</span></div>
@@ -347,6 +375,15 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
   <div class="wrap" id="shopGrid"><div class="grid" id="grid" style="margin-top:8px"></div></div>
 </section>
 
+<section class="wrap reveal" aria-labelledby="standT" style="padding-top:56px">
+  <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:16px"><span class="eyebrow">מהיציע</span><h2 id="standT" class="disp h2">איפה שהחולצה נולדת</h2></div>
+  <div class="collage">
+    <a class="ctile ct-a" href="#p-fcb" data-open="fcb"><img data-bg="hero" alt="יציע מלא באצטדיון קאמפ נואו בלילה"><span class="cin"><small>ברצלונה · קאמפ נואו</small><b>כ־100 אלף קולות.<br>חולצה אחת.</b><i>לחולצת הבית ←</i></span></a>
+    <a class="ctile ct-b" href="#p-fcbm" data-open="fcbm"><img data-bg="heroM" alt="אצטדיון אליאנץ ארנה מואר באדום"><span class="cin"><small>באיירן · אליאנץ ארנה</small><b>כשהגג<br>נדלק באדום.</b><i>לחולצת הבית ←</i></span></a>
+    <a class="ctile ct-c" href="#print"><img data-bg="ball" alt="נעל כדורגל על כדור, על הדשא"><span class="cin"><small>סטודיו הדפסה</small><b>השם שלך.<br>על הגב.</b><i>לעיצוב ←</i></span></a>
+  </div>
+  <button class="quizcta" data-go="quiz"><span class="qbg"><img data-bg="pitch" alt=""></span><span class="qtx"><small>לא בטוח מה לבחור?</small><b>מצא לי חולצה ב־3 שאלות</b></span><span class="qgo" aria-hidden="true">←</span></button>
+</section>
 <section id="retro" class="reveal" style="padding:56px 0 8px" aria-labelledby="retroT">
   <div class="wrap" style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">קולקציית רטרו</span><h2 id="retroT" class="disp h2">מסע בזמן</h2></div>
   <div class="rail" id="decChips" role="group" aria-label="בחירת עשור" style="gap:8px;margin-top:14px"></div>
@@ -523,13 +560,13 @@ function S(o,p){o.lx=p.lx;o.ty=p.ty;return o}
 var ST=[
 S({name:'סן סירו',short:'סן סירו',city:'מילאנו, איטליה',cap:'כ־75 אלף',club:'מילאן',kit:'mil',a:'#D01F2E',b:'#151515',rx:150,fact:'הבית המשותף של מילאן ואינטר, והאצטדיון הגדול באיטליה. בדרבי חצי יציע אדום-שחור וחצי כחול-שחור.'},pj(9.12,45.48)),
 S({name:'סנטיאגו ברנבאו',short:'ברנבאו',city:'מדריד, ספרד',cap:'כ־83 אלף',club:'ריאל',kit:'rma',a:'#F4F4F2',b:'#7C8BA6',rx:60,fact:'אחרי השיפוץ הגדול קיבל גג נפתח ומסך היקפי של 360 מעלות. מקדש של לבן.'},pj(-3.69,40.45)),
-S({name:'קאמפ נואו',short:'קאמפ נואו',city:'ברצלונה, ספרד',cap:'כ־100 אלף',club:'ברצלונה',kit:'fcb',a:'#A3123A',b:'#1B2A6B',rx:170,fact:'האצטדיון הגדול באירופה, באמצע שיפוץ ענק שיהפוך אותו לגדול עוד יותר.'},pj(2.12,41.38)),
+S({ph:'hero',name:'קאמפ נואו',short:'קאמפ נואו',city:'ברצלונה, ספרד',cap:'כ־100 אלף',club:'ברצלונה',kit:'fcb',a:'#A3123A',b:'#1B2A6B',rx:170,fact:'האצטדיון הגדול באירופה, באמצע שיפוץ ענק שיהפוך אותו לגדול עוד יותר.'},pj(2.12,41.38)),
 S({name:'מטרופוליטנו',short:'מטרופוליטנו',city:'מדריד, ספרד',cap:'כ־70 אלף',club:'אתלטיקו',kit:'atm',a:'#D3202F',b:'#F4F4F2',rx:150,fact:'הבית של אתלטיקו מאז 2017, עם גג שמכסה את כל היציעים. אחד האצטדיונים הרועשים בספרד.'},pj(-2.6,40.85)),
 S({name:'אנפילד',short:'אנפילד',city:'ליברפול, אנגליה',cap:'כ־61 אלף',club:'ליברפול',kit:'liv',a:'#9B1B2A',b:'#E8E2D0',rx:30,fact:'יציע הקופ שר את You’ll Never Walk Alone לפני כל משחק. אחד היציעים המפורסמים בעולם.'},pj(-4.2,53.6)),
 S({name:'אתיחאד',short:'אתיחאד',city:'מנצ׳סטר, אנגליה',cap:'יותר מ־50 אלף',club:'סיטי',kit:'mci',a:'#8EC5EA',b:'#FFFFFF',rx:120,fact:'הבית של מנצ׳סטר סיטי, שעובר הרחבה של אחד היציעים כדי להכניס עוד אלפי אוהדים.'},pj(-1.2,53.2)),
 S({name:'אצטדיון טוטנהאם',short:'טוטנהאם',city:'לונדון, אנגליה',cap:'כ־62 אלף',club:'טוטנהאם',kit:'tot',a:'#F4F4F2',b:'#14213D',rx:80,fact:'ליציע הדרומי קומה אחת ענקית, היציע החד-קומתי הגדול באנגליה.'},pj(-.07,51.6)),
 S({name:'סיגנל אידונה פארק',short:'דורטמונד',city:'דורטמונד, גרמניה',cap:'כ־81 אלף',club:'דורטמונד',kit:'bvb',a:'#F7D117',b:'#151515',rx:20,fact:'הקיר הצהוב: יציע עמידה ענק של אוהדים בצהוב. הטרסה המפורסמת באירופה, ומכאן גם השם שלנו.'},pj(7.45,51.49)),
-S({name:'אליאנץ ארנה',short:'אליאנץ',city:'מינכן, גרמניה',cap:'כ־75 אלף',club:'באיירן',kit:'fcbm',a:'#D21F34',b:'#F4F4F2',rx:190,fact:'כל החזית החיצונית נדלקת באדום במשחקי הבית של באיירן. נראה מקילומטרים.'},pj(11.62,48.22))
+S({ph:'heroM',name:'אליאנץ ארנה',short:'אליאנץ',city:'מינכן, גרמניה',cap:'כ־75 אלף',club:'באיירן',kit:'fcbm',a:'#D21F34',b:'#F4F4F2',rx:190,fact:'כל החזית החיצונית נדלקת באדום במשחקי הבית של באיירן. נראה מקילומטרים.'},pj(11.62,48.22))
 ];
 var st={recent:[],qs:'',team:'',dec:'all',lg:'all',cart:[],favs:{},kit:'mil',name:'TERRACE',num:'26',h:178,fit:'reg',stad:0,gift:false,giftTo:'',giftNote:''};
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
@@ -571,8 +608,9 @@ function rSwatches(){$('#swatches').innerHTML=P.map(function(p){var on=st.kit===
 function rSize(){var i=recI(),z=SZ[i];$$('.recS').forEach(function(e){e.textContent=z.s});$('#recChest').textContent=z.chest;$('#recLen').textContent=z.len;$('#hVal').textContent=st.h;
 $('#sizeRow').innerHTML=SZ.map(function(s,j){return '<span class="sz'+(j===i?' on':'')+'">'+s.s+'</span>'}).join('');
 $$('[data-fit]').forEach(function(b){var on=b.getAttribute('data-fit')===st.fit;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)})}
+function stadVis(t,id){return t.ph?'<div class="stadph"><img src="'+BG[t.ph]+'" alt="'+t.name+'" loading="lazy"><span class="stadtag">'+t.city+'</span></div>':'<div class="stadill">'+stadium(t,id)+'</div>'}
 function rMap(){var box=$('#mapBox');$$('.pin',box).forEach(function(e){e.remove()});ST.forEach(function(t,i){var b=document.createElement('button');b.className='pin'+(st.stad===i?' on':'');b.style.left=t.lx.toFixed(1)+'%';b.style.top=t.ty.toFixed(1)+'%';b.setAttribute('data-stad',i);b.setAttribute('aria-label',t.name+', '+t.city);b.setAttribute('aria-pressed',st.stad===i);b.innerHTML='<i></i>';box.appendChild(b)});
-var t=ST[st.stad],k=by(t.kit);$('#stadCard').innerHTML='<div class="fade" style="display:flex;flex-direction:column;gap:14px">'+stadium(t,'sdm')+'<span style="color:var(--mut2);font-weight:600;font-size:14px">'+t.city+'</span><h3 class="disp" style="font-size:56px;line-height:.85">'+t.name+'</h3><div style="display:flex;gap:24px;flex-wrap:wrap"><div style="display:flex;flex-direction:column"><strong class="disp" style="font-size:40px;line-height:1;color:var(--lime)">'+t.cap+'</strong><span style="color:var(--mut);font-size:13px">מקומות</span></div><div style="display:flex;flex-direction:column"><strong class="disp" style="font-size:40px;line-height:1;color:var(--lime)">'+t.club+'</strong><span style="color:var(--mut);font-size:13px">קבוצת הבית</span></div></div><p style="margin:0;font-size:16px;line-height:1.6;color:#D9DBD4">'+t.fact+'</p><button class="btn btn-lime" data-open="'+k.id+'">לחולצה של '+t.club+' · ₪'+f2(k.price)+'</button></div>'}
+var t=ST[st.stad],k=by(t.kit);$('#stadCard').innerHTML='<div class="fade" style="display:flex;flex-direction:column;gap:14px">'+stadVis(t,'sdm')+'<span style="color:var(--mut2);font-weight:600;font-size:14px">'+t.city+'</span><h3 class="disp" style="font-size:56px;line-height:.85">'+t.name+'</h3><div style="display:flex;gap:24px;flex-wrap:wrap"><div style="display:flex;flex-direction:column"><strong class="disp" style="font-size:40px;line-height:1;color:var(--lime)">'+t.cap+'</strong><span style="color:var(--mut);font-size:13px">מקומות</span></div><div style="display:flex;flex-direction:column"><strong class="disp" style="font-size:40px;line-height:1;color:var(--lime)">'+t.club+'</strong><span style="color:var(--mut);font-size:13px">קבוצת הבית</span></div></div><p style="margin:0;font-size:16px;line-height:1.6;color:#D9DBD4">'+t.fact+'</p><button class="btn btn-lime" data-open="'+k.id+'">לחולצה של '+t.club+' · ₪'+f2(k.price)+'</button></div>'}
 function rCounts(){if(typeof rShipBar==='function')rShipBar();var n=st.cart.length;$$('.cartN').forEach(function(e){e.textContent=n});$$('.cartBadge').forEach(function(e){e.textContent=n;e.hidden=!n})}
 
 /* ---------- overlays ---------- */
@@ -623,7 +661,7 @@ function openStory(i){si=i;go('story');clearInterval(storyT);storyT=setInterval(
 function step(d){var n=si+d;if(n>=ST.length){closeOv();return}si=Math.max(0,n);rStory();clearInterval(storyT);storyT=setInterval(function(){step(1)},5000)}
 function rStory(){var t=ST[si],k=by(t.kit);show('story','<div class="story" role="dialog" aria-modal="true" aria-label="סטורי: '+t.name+'"><div class="story-in bgpitch-dim"><div class="bars">'+ST.map(function(x,j){return '<span class="'+(j<si?'done':j===si?'cur':'')+'"><i></i></span>'}).join('')+'</div>'+
 '<div class="row" style="padding:12px 14px"><span style="display:flex;flex-direction:column"><strong>'+t.name+'</strong><span style="font-size:13px;color:var(--mut2)">'+t.city+'</span></span><button class="icon-btn" data-act="close" aria-label="סגירה" style="background:var(--card2);border:none">'+X+'</button></div>'+
-'<div style="flex:1;position:relative;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 20px" class="fade">'+stadium(t,'sds')+'<h3 class="disp" style="font-size:64px;line-height:.85">'+t.name+'</h3><p style="margin:0;font-size:17px;line-height:1.6;color:#D9DBD4">'+t.fact+'</p><span class="disp" style="font-size:40px;color:var(--lime)">'+t.cap+' מקומות</span><button class="tap" data-act="sprev" aria-label="הקודם" style="right:0"></button><button class="tap" data-act="snext" aria-label="הבא" style="left:0"></button></div>'+
+'<div style="flex:1;position:relative;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 20px" class="fade">'+stadVis(t,'sds')+'<h3 class="disp" style="font-size:64px;line-height:.85">'+t.name+'</h3><p style="margin:0;font-size:17px;line-height:1.6;color:#D9DBD4">'+t.fact+'</p><span class="disp" style="font-size:40px;color:var(--lime)">'+t.cap+' מקומות</span><button class="tap" data-act="sprev" aria-label="הקודם" style="right:0"></button><button class="tap" data-act="snext" aria-label="הבא" style="left:0"></button></div>'+
 '<div style="padding:16px 20px 24px"><button class="btn btn-lime" data-open="'+k.id+'" style="width:100%;min-height:58px;font-size:17px">לחולצה של '+t.club+' · ₪'+f2(k.price)+'</button></div></div></div>')}
 
 
@@ -661,7 +699,7 @@ function openPage(k){show(k,'<div class="sheet side" role="dialog" aria-modal="t
 function openMenu(){var L=[['en','ליגה אנגלית'],['es','ליגה ספרדית'],['it','ליגה איטלקית'],['de','בונדסליגה'],['pt','פורטוגל'],['retro','רטרו ונבחרות']];
 show('menu','<div class="sheet side" role="dialog" aria-modal="true" aria-label="תפריט" style="height:88vh;height:88dvh">'+head('תפריט')+'<div class="sheet-body"><strong style="color:var(--mut2);font-size:13px">חנות</strong>'+L.map(function(l){return '<button class="line-item" data-mlg="'+l[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+l[1]+'</button>'}).join('')+
 '<strong style="color:var(--mut2);font-size:13px;margin-top:8px">עוד</strong>'+[['#print','סטודיו הדפסה'],['#size','מצא מידה'],['#map','מפת אצטדיונים'],['#gift','מתנה לאוהד']].map(function(x){return '<button class="line-item" data-mjump="'+x[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+x[1]+'</button>'}).join('')+
-[['fan','כרטיס אוהד לסטורי'],['track','מעקב הזמנה'],['faq','שאלות נפוצות'],['deals','מבצעים'],['install','הוספה למסך הבית']].map(function(x){return '<button class="line-item" data-go="'+x[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+x[1]+'</button>'}).join('')+'</div></div>')}
+[['quiz','מצא לי חולצה ב־3 שאלות'],['fan','כרטיס אוהד לסטורי'],['track','מעקב הזמנה'],['faq','שאלות נפוצות'],['deals','מבצעים'],['install','הוספה למסך הבית']].map(function(x){return '<button class="line-item" data-go="'+x[0]+'" style="min-height:52px;font-weight:700;font-size:17px">'+x[1]+'</button>'}).join('')+'<a class="line-item" href="https://terraceclub-il.github.io/terrace-club-demo/plan.pdf" target="_blank" rel="noopener" style="min-height:52px;font-weight:700;font-size:17px;text-decoration:none;border-color:var(--lime)">התוכנית המלאה לבעל החנות (PDF)</a></div></div>')}
 var OV={menu:openMenu,cart:function(){openCart()},favs:openFavs,search:openSearch,deals:function(){openDeals()},team:openTeam,install:openInstall,story:function(){rStory()},fan:function(){openPage('fan')},track:function(){openPage('track')},faq:function(){openPage('faq')}};
 function go(k){$('#toastBox').innerHTML='';if(location.hash==='#'+k)route();else location.hash=k}
 function route(){var h=decodeURIComponent(location.hash.slice(1));
@@ -697,6 +735,22 @@ document.addEventListener('click',function(e){var t=e.target.closest('[data-pick
  if(t.hasAttribute('data-zoom')){openZoom(t.getAttribute('data-zoom'));return}
  if(t.getAttribute('data-act')==='pairAdd'&&pairSel.length===2){var r=rec().s;add(pairSel[0],r);add(pairSel[1],r);pairSel=[];closeOv();toast('2 חולצות בסל · משלוח חינם');return}
  if(t.getAttribute('data-act')==='wcopy'){var u=wishLink();try{navigator.clipboard.writeText(u).then(function(){toast('הקישור הועתק')},function(){toast('לא הצלחתי להעתיק')})}catch(x){toast('לא הצלחתי להעתיק')}}});
+
+
+/* ---------- v7: kit finder quiz ---------- */
+var QZ={step:0,a:{}};
+var COLOR={red:['#D01F2E','#D21F34','#9B1B2A','#E0262E','#D3202F','#7A1F33'],blue:['#1B2A6B','#8EC5EA','#1A2547','#1F5FB8','#5B3FA8','#1E3A9E','#1B1F4B'],white:['#F4F4F2','#FFFFFF'],yellow:['#F7D117','#F07A1A','#F2A7B5'],black:['#151515','#1A1A1A']};
+function colorOf(p){for(var k in COLOR)if(COLOR[k].indexOf(p.c1)>=0)return k;return ''}
+function openQuiz(){var s=QZ.step,body;
+ var steps='<div class="qsteps" aria-hidden="true">'+[0,1,2].map(function(i){return '<span class="'+(i<=s?'on':'')+'"></span>'}).join('')+'</div>';
+ if(s===0)body='<strong style="font-size:20px">מה הסגנון שלך?</strong><div class="qopts"><button data-q="style:new">עונה חדשה 26/27</button><button data-q="style:retro">רטרו קלאסי</button></div>';
+ else if(s===1)body='<strong style="font-size:20px">'+(QZ.a.style==='retro'?'מה מושך אותך?':'מאיזו ליגה?')+'</strong><div class="qopts">'+(QZ.a.style==='retro'?[['nat','נבחרות'],['club','מועדונים'],['any','לא משנה']]:[['en','אנגליה'],['es','ספרד'],['it','איטליה'],['de','גרמניה'],['any','לא משנה']]).map(function(o){return '<button data-q="lg:'+o[0]+'">'+o[1]+'</button>'}).join('')+'</div>';
+ else if(s===2)body='<strong style="font-size:20px">איזה צבע עליך?</strong><div class="qopts">'+[['red','אדום','#D01F2E'],['blue','כחול','#1F5FB8'],['white','לבן','#F4F4F2'],['yellow','צהוב / כתום','#F7D117'],['black','שחור','#151515'],['any','הפתיעו אותי','transparent']].map(function(o){return '<button data-q="col:'+o[0]+'"><i style="background:'+o[2]+'"></i>'+o[1]+'</button>'}).join('')+'</div>';
+ else{var NAT=['arg','mex','ned','ger'];var sc=P.map(function(p){var v=0,retro=p.lg==='retro';if((QZ.a.style==='retro')===retro)v+=4;if(QZ.a.lg&&QZ.a.lg!=='any'){if(QZ.a.lg==='nat'?NAT.indexOf(p.id)>=0:QZ.a.lg==='club'?(retro&&NAT.indexOf(p.id)<0):p.lg===QZ.a.lg)v+=3}if(QZ.a.col&&QZ.a.col!=='any'&&colorOf(p)===QZ.a.col)v+=2;if(p.hot)v+=.5;return {p:p,v:v}}).sort(function(a,b){return b.v-a.v}).slice(0,3);
+  body='<strong style="font-size:22px">החולצות שלך</strong><span style="color:var(--mut)">לפי מה שבחרת, אלה הכי מתאימות לך. המידה שלך: <b style="color:var(--lime)">'+rec().s+'</b></span>'+sc.map(function(x){return listItem(x.p)}).join('')+'<button class="btn" data-q="restart" style="border:1.5px solid var(--line2);color:var(--fg)">שוב מההתחלה</button>'}
+ show('quiz','<div class="sheet" role="dialog" aria-modal="true" aria-label="מצא לי חולצה" style="height:80vh;height:80dvh">'+head('מצא לי חולצה')+'<div class="sheet-body">'+(s<3?steps:'')+body+'</div></div>')}
+OV.quiz=function(){QZ={step:0,a:{}};openQuiz()};
+document.addEventListener('click',function(e){var t=e.target.closest('[data-q]');if(!t)return;var v=t.getAttribute('data-q');if(v==='restart'){QZ={step:0,a:{}};openQuiz();return}var kv=v.split(':');QZ.a[kv[0]]=kv[1];QZ.step++;openQuiz()});
 
 /* ---------- actions ---------- */
 var tT=null;
@@ -763,7 +817,7 @@ $('#fanFile').addEventListener('change',function(e){var f=e.target.files&&e.targ
 document.addEventListener('load',function(e){var t=e.target;if(t&&t.tagName==='IMG'){t.classList.add('ld');t.parentNode&&t.parentNode.classList.add('done')}},true);
 setInterval(function(){$$('.thumb img:not(.ld),.ph img:not(.ld)').forEach(function(i){if(i.complete&&i.naturalWidth){i.classList.add('ld');i.parentNode.classList.add('done')}})},700);
 try{var sv=localStorage.getItem('tcTeam');if(sv){st.team=sv==='-'?'':sv;if(st.team)st.kit=st.team}}catch(x){}
-$$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});(function(){var r=document.documentElement.style;r.setProperty('--bg-pitch','url('+BG.pitch+')');r.setProperty('--bg-ball','url('+BG.ball+')');var hi=$('#heroImg');function pick(){var m=window.matchMedia('(max-width:820px)').matches;var src=m?BG.heroM:BG.hero;if(hi.getAttribute('src')!==src)hi.src=src}pick();window.addEventListener('resize',pick)})();rDec();rTeam();rMySize();rRecent();$('#hIn').value=st.h;$('#nameIn').value=st.name;$('#numIn').value=st.num;$('#sortSel').addEventListener('change',function(e){SORT=e.target.value;rGrid()});if(location.hash.length>1)route();
+$$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});(function(){var r=document.documentElement.style;r.setProperty('--bg-pitch','url('+BG.pitch+')');r.setProperty('--bg-ball','url('+BG.ball+')');$$('img[data-bg]').forEach(function(im){im.loading='lazy';im.decoding='async';im.src=BG[im.getAttribute('data-bg')]});var hi=$('#heroImg');function pick(){var m=window.matchMedia('(max-width:820px)').matches;var src=m?BG.heroM:BG.hero;if(hi.getAttribute('src')!==src)hi.src=src}pick();window.addEventListener('resize',pick)})();rDec();rTeam();rMySize();rRecent();$('#hIn').value=st.h;$('#nameIn').value=st.name;$('#numIn').value=st.num;$('#sortSel').addEventListener('change',function(e){SORT=e.target.value;rGrid()});if(location.hash.length>1)route();
 /* ---------- promos ---------- */
 var DEALS=[
 {key:'ship',img:'mil',badge:'חינם',t:'2 חולצות = משלוח חינם',d:'בקנייה של 2 חולצות או מעל 179 ₪. אתה ועוד חבר?',cta:'לבחירת זוג',act:'shop'},
@@ -776,12 +830,13 @@ var pIdx=0,pTimer=null,pOff=false,pShown={};
 function promoHTML(dl){var k=by(dl.img);return '<div class="promo" role="status" aria-live="polite"><span class="shine"></span><span class="pimg ph">'+photo(k)+'<span class="pbadge">'+dl.badge+'</span></span><div style="flex:1;min-width:0;padding-left:28px"><div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">'+(dl.demo?'<span class="demo-tag">מבצע לדוגמה</span>':'<span class="eyebrow" style="font-size:11px">מבצע</span>')+'</div><h3>'+dl.t+'</h3><p>'+dl.d+'</p><button class="btn btn-lime" data-deal="'+dl.act+'" style="min-height:42px;padding:0 18px;font-size:14px">'+dl.cta+'</button></div><button class="px" data-act="pclose" aria-label="סגירת המבצע">'+X+'</button></div>'}
 function showPromo(dl){if(pOff||cur||$('#promoBox .promo'))return;var b=$('#promoBox');b.innerHTML=promoHTML(dl);pShown[dl.key]=1;clearTimeout(b._h);b._h=setTimeout(hidePromo,7000)}
 function hidePromo(){var e=$('#promoBox .promo');if(!e)return;e.classList.add('out');setTimeout(function(){$('#promoBox').innerHTML=''},300)}
+DEALS=DEALS.filter(function(d){return !d.demo});
 function nextPromo(){var dl=DEALS[pIdx%DEALS.length];pIdx++;showPromo(dl)}
 var pCount=0,lastScroll=0;window.addEventListener('scroll',function(){lastScroll=Date.now()},{passive:true});
 function startPromos(){clearInterval(pTimer);setTimeout(tryPromo,25000);pTimer=setInterval(tryPromo,70000)}
 function tryPromo(){if(pCount>=2){clearInterval(pTimer);return}if(Date.now()-lastScroll<1500){setTimeout(tryPromo,3000);return}pCount++;nextPromo()}
 function cartNudge(){if(st.cart.length===1&&!pShown.nudge){var p=by(st.cart[0].id),q=P.filter(function(x){return x.lg===p.lg&&x.id!==p.id})[0]||P[1];setTimeout(function(){showPromo({key:'nudge',img:q.id,badge:'+1',t:'עוד אחת וזה חינם',d:'הוסיפו את '+q.he+' והמשלוח עלינו.',cta:'הוספה לסל',act:'add:'+q.id})},2800)}}
-function openDeals(){show('deals','<div class="sheet side" role="dialog" aria-modal="true" aria-label="מבצעים" style="height:78vh">'+head('המבצעים')+'<div class="sheet-body">'+DEALS.map(function(dl){return '<div class="deal"><span class="big">'+dl.badge+'</span><span style="flex:1;display:flex;flex-direction:column;gap:2px"><strong>'+dl.t+(dl.demo?' <span class="demo-tag">לדוגמה</span>':'')+'</strong><span style="color:var(--mut);font-size:13px">'+dl.d+'</span></span><button class="quick" data-deal="'+dl.act+'" aria-label="'+dl.cta+'">←</button></div>'}).join('')+'<span style="font-size:12px;color:var(--mut2)">מבצעים שמסומנים "לדוגמה" הם רעיונות. בעל החנות קובע אם להפעיל אותם ובאיזה אחוז.</span></div></div>')}
+function openDeals(){show('deals','<div class="sheet side" role="dialog" aria-modal="true" aria-label="מבצעים" style="height:78vh">'+head('המבצעים')+'<div class="sheet-body">'+DEALS.map(function(dl){return '<div class="deal"><span class="big">'+dl.badge+'</span><span style="flex:1;display:flex;flex-direction:column;gap:2px"><strong>'+dl.t+(dl.demo?' <span class="demo-tag">לדוגמה</span>':'')+'</strong><span style="color:var(--mut);font-size:13px">'+dl.d+'</span></span><button class="quick" data-deal="'+dl.act+'" aria-label="'+dl.cta+'">←</button></div>'}).join('')+'</div></div>')}
 document.addEventListener('click',function(e){var t=e.target.closest('[data-deal],[data-act="pclose"],[data-go="deals"]');if(!t)return;
 if(t.getAttribute('data-act')==='pclose'){hidePromo();return}
 if(t.getAttribute('data-go')==='deals'){hidePromo();return}
