@@ -652,7 +652,7 @@ var a=t.getAttribute('data-act');
 if(t.hasAttribute('data-qs')){st.qs=t.getAttribute('data-qs');rMySize();rGrid();rSize();toast('המידה שלך: '+st.qs);return}
 if(t.hasAttribute('data-pmode')){pprint=t.getAttribute('data-pmode')==='1';rProduct();return}
 if(t.hasAttribute('data-dec')){st.dec=t.getAttribute('data-dec');rDec();return}
-if(t.hasAttribute('data-team')){st.team=t.getAttribute('data-team');try{localStorage.setItem('tcTeam',st.team||'-')}catch(x){}if(st.team){st.kit=st.team;rKits();rSwatches();drawFan()}rTeam();closeOv();if(st.team)toast('נבחרה '+by(st.team).he.split(' · ')[0]);return}
+if(t.hasAttribute('data-team')){st.team=t.getAttribute('data-team');try{localStorage.setItem('tcTeam',st.team||'-')}catch(x){}if(st.team){st.kit=st.team;rKits();rSwatches();drawFan()}rTeam();closeOv();$('#promoBox').innerHTML='';if(st.team)toast('נבחרה '+by(st.team).he.split(' · ')[0]);return}
 if(t.hasAttribute('data-pnav')){var ix=(P.indexOf(pp)+(+t.getAttribute('data-pnav'))+P.length)%P.length;pp=P[ix];pprint=false;rProduct();return}
 if(t.hasAttribute('data-pair')){add(pp.id,psz,pprint?nameShow()+' '+numShow():'');add(t.getAttribute('data-pair'),psz);closeOv();toast('2 חולצות בסל · משלוח חינם');return}
 if(t.hasAttribute('data-open')){e.preventDefault();clearInterval(storyT);openProduct(t.getAttribute('data-open'));return}
@@ -717,7 +717,7 @@ var DEALS=[
 ];
 var pIdx=0,pTimer=null,pOff=false,pShown={};
 function promoHTML(dl){var k=by(dl.img);return '<div class="promo" role="status" aria-live="polite"><span class="shine"></span><span class="pimg ph">'+photo(k)+'<span class="pbadge">'+dl.badge+'</span></span><div style="flex:1;min-width:0;padding-left:28px"><div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">'+(dl.demo?'<span class="demo-tag">מבצע לדוגמה</span>':'<span class="eyebrow" style="font-size:11px">מבצע</span>')+'</div><h3>'+dl.t+'</h3><p>'+dl.d+'</p><button class="btn btn-lime" data-deal="'+dl.act+'" style="min-height:42px;padding:0 18px;font-size:14px">'+dl.cta+'</button></div><button class="px" data-act="pclose" aria-label="סגירת המבצע">'+X+'</button></div>'}
-function showPromo(dl){if(pOff||cur)return;var b=$('#promoBox');b.innerHTML=promoHTML(dl);pShown[dl.key]=1;clearTimeout(b._h);b._h=setTimeout(hidePromo,7000)}
+function showPromo(dl){if(pOff||cur||$('#promoBox .promo'))return;var b=$('#promoBox');b.innerHTML=promoHTML(dl);pShown[dl.key]=1;clearTimeout(b._h);b._h=setTimeout(hidePromo,7000)}
 function hidePromo(){var e=$('#promoBox .promo');if(!e)return;e.classList.add('out');setTimeout(function(){$('#promoBox').innerHTML=''},300)}
 function nextPromo(){var dl=DEALS[pIdx%DEALS.length];pIdx++;showPromo(dl)}
 var pCount=0,lastScroll=0;window.addEventListener('scroll',function(){lastScroll=Date.now()},{passive:true});
@@ -735,7 +735,10 @@ else if(a.indexOf('add:')===0){add(a.slice(4),rec().s)}});
 startPromos();
 
 (document.fonts&&document.fonts.load?document.fonts.load('700 100px Karantina'):Promise.resolve()).then(drawFan,drawFan);
-try{if(!localStorage.getItem('tcTeam'))setTimeout(function(){if(!cur)openTeam()},1500)}catch(x){setTimeout(function(){if(!cur)openTeam()},1500)}
+function teamAsk(){var seen=null;try{seen=localStorage.getItem('tcTeam')}catch(x){}if(seen)return;if(cur||$('#promoBox .promo')){setTimeout(teamAsk,5000);return}
+$('#promoBox').innerHTML='<div class="promo" role="dialog" aria-label="איזו קבוצה אתה אוהד?" style="flex-direction:column;align-items:stretch;gap:10px"><div class="row"><strong style="font-size:16px">איזו קבוצה אתה אוהד?</strong><button class="px" data-act="tclose" aria-label="סגירה" style="position:static">'+X+'</button></div><div class="rail" style="padding:0;gap:8px">'+['mil','rma','fcb','mun','liv','mci','fcbm','juv','bvb'].map(function(id){var p=by(id);return '<button data-team="'+id+'" style="width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;color:var(--fg);padding:0;font-size:11px;font-weight:700"><span class="ph" style="width:56px;height:56px;border-radius:14px">'+photo(p)+'</span>'+p.he.split(' · ')[0]+'</button>'}).join('')+'</div><button data-act="team" style="background:none;border:none;color:var(--lime);font-weight:700;font-size:13px;min-height:32px">עוד קבוצות</button></div>'}
+setTimeout(teamAsk,15000);
+document.addEventListener('click',function(e){if(e.target.closest('[data-act="tclose"]')){hidePromo();try{localStorage.setItem('tcTeam','-')}catch(x){}}});
 
 })();
 </script>
