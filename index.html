@@ -319,6 +319,28 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 .st-back .jersey-wrap{filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
 .st-hint{font-size:12px;color:var(--mut);font-weight:600}
 @media (max-width:820px){.st-stage{min-height:440px}.st-panel{order:2}.st-stage{order:1}}
+
+.hero{height:auto!important;min-height:0!important}
+.hero-body{padding:clamp(36px,6vw,80px) var(--px) clamp(28px,4vw,56px)!important;display:block!important}
+.hx{max-width:1100px;display:flex;flex-direction:column;gap:16px}
+.hx-eye{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--lime);border:1px solid rgba(212,255,58,.5);padding:6px 12px;border-radius:999px;background:rgba(10,11,10,.5)}
+.hx-h{font-size:clamp(84px,13vw,180px)!important;line-height:.8!important;text-shadow:0 6px 40px rgba(0,0,0,.6)}
+.hx-p{margin:0;font-size:clamp(17px,1.7vw,21px);line-height:1.55;color:#E8EAE3;max-width:560px;text-shadow:0 2px 12px #000}
+.hx-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;margin-top:6px}
+.hx-tile{position:relative;display:block;border-radius:24px;overflow:hidden;aspect-ratio:4/5;text-decoration:none;color:#fff;border:1.5px solid rgba(255,255,255,.14);background:#F2F2EF;isolation:isolate}
+.hx-tile .ph{position:absolute;inset:0;background:#F2F2EF}
+.hx-tile img{width:100%;height:100%;object-fit:contain;padding:8% 8% 30%}
+.hx-tile::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(10,11,10,0) 45%,rgba(10,11,10,.92) 78%)}
+.hx-tile:hover{border-color:var(--lime)}
+.hx-lab{position:absolute;right:14px;left:14px;bottom:14px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.hx-lab small{font-size:12px;font-weight:800;color:var(--lime);letter-spacing:.06em}
+.hx-lab b{font-family:var(--disp);font-weight:700;font-size:clamp(34px,4vw,48px);line-height:.9}
+.hx-lab i{font-style:normal;font-size:13px;font-weight:800;opacity:.9}
+.hx-trust{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.hx-trust li{font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(10,11,10,.6);border:1px solid var(--line2)}
+.hx-trust li::before{content:"✓";color:var(--lime);margin-left:6px;font-weight:800}
+@media (min-width:900px){.hx{display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto auto auto 1fr;column-gap:48px}.hx-eye,.hx-h,.hx-p,.hx-trust{grid-column:1}.hx-tiles{grid-column:2;grid-row:1/5;align-self:center}}
+.faqh details.faq summary{font-size:16px}
 </style>
 </head>
 <body>
@@ -355,6 +377,23 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
 </header>
 <div class="shipbar" id="shipbar" aria-live="polite"><span id="shipTxt">הוסיפו 2 חולצות וקבלו משלוח חינם</span><progress id="shipProg" value="0" max="100" aria-hidden="true"></progress></div>
 
+<section class="hero" id="top">
+  <div class="layer" id="parStands"><img id="heroImg" alt="" decoding="async" fetchpriority="high" style="width:100%;height:115%;object-fit:cover;object-position:center 40%;display:block"></div>
+  <div class="layer" id="parPitch" style="background:linear-gradient(180deg,rgba(6,8,10,.35) 0%,rgba(6,8,10,.15) 40%,rgba(10,11,10,.9) 100%),linear-gradient(270deg,rgba(6,8,10,.75),rgba(6,8,10,0) 65%)"></div>
+  <div class="layer" aria-hidden="true" style="background-image:radial-gradient(circle,rgba(212,255,58,.08) 1.2px,transparent 1.6px);background-size:14px 14px;mix-blend-mode:screen"></div>
+  <div class="hero-body" id="heroBody">
+    <div class="hx">
+      <span class="hx-eye">TERRACE CLUB · חולצות כדורגל</span>
+      <h1 class="disp hx-h">תלבש<br>את <span style="color:var(--lime)">הלב.</span></h1>
+      <p class="hx-p">חולצות העונה החדשה ורטרו אגדי של הקבוצות הגדולות באירופה. עם השם והמספר שלך על הגב.</p>
+      <div class="hx-tiles">
+        <a href="#shop" class="hx-tile" data-lgjump="season"><span class="ph"><img data-kitimg="rma" alt=""></span><span class="hx-lab"><small>עונת 26/27</small><b>חולצות עונה</b><i>לקולקציה ←</i></span></a>
+        <a href="#retro" class="hx-tile" data-lgjump="retro"><span class="ph"><img data-kitimg="juv97" alt=""></span><span class="hx-lab"><small>אגדות מהעבר</small><b>חולצות רטרו</b><i>לקולקציה ←</i></span></a>
+      </div>
+      <ul class="hx-trust"><li>משלוח חינם ב־2 חולצות</li><li>הדפסת שם ומספר</li><li>מידות S עד 4XL</li></ul>
+    </div>
+  </div>
+</section>
 <section aria-label="סטוריז" style="padding-top:18px"><div class="rail" id="stories" style="gap:14px"></div></section>
 
 <section aria-labelledby="newT" style="padding-top:22px"><div class="wrap row" style="align-items:flex-end;flex-wrap:wrap"><h2 class="disp h2">חם עכשיו</h2><span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="font-size:14px;color:var(--mut)">המידה שלך: <strong class="recS" style="color:var(--lime)">M</strong></span><button class="pill chip-sm on" data-go="pair">צמד מנצח · משלוח חינם</button></span></div>
@@ -371,20 +410,7 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
   </div>
 </section>
 
-<section class="hero" id="top">
-  <div class="layer" id="parStands"><img id="heroImg" alt="" decoding="async" fetchpriority="high" style="width:100%;height:115%;object-fit:cover;object-position:center 40%;display:block"></div>
-  <div class="layer" id="parPitch" style="background:linear-gradient(180deg,rgba(6,8,10,.35) 0%,rgba(6,8,10,.15) 40%,rgba(10,11,10,.9) 100%),linear-gradient(270deg,rgba(6,8,10,.75),rgba(6,8,10,0) 65%)"></div>
-  <div class="layer" aria-hidden="true" style="background-image:radial-gradient(circle,rgba(212,255,58,.08) 1.2px,transparent 1.6px);background-size:14px 14px;mix-blend-mode:screen"></div>
-  <div class="hero-body" id="heroBody">
-    <div class="hero-text">
-      <span class="badge"><span class="live"><i></i><i></i></span>הזרקורים דולקים · עונת 26/27</span>
-      <h1 class="disp">הטריבונה<br>מתחילה<br><span style="color:var(--lime)">אצלך.</span></h1>
-      <p>חולצות עונה ורטרו של הקבוצות הגדולות באירופה. השם שלך, המספר שלך, היציע שלך.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#shop" class="btn btn-lime">לכל החולצות</a><a href="#print" class="btn btn-ghost">עצבו עם שם</a></div>
-    </div>
-    <div class="hero-kit"><button class="jersey-wrap float" id="heroKit" style="width:min(380px,62vw);filter:drop-shadow(0 30px 40px #000)"></button></div>
-  </div>
-</section>
+
 
 <div class="scarf" aria-hidden="true"></div>
 
@@ -498,6 +524,19 @@ details.faq p{margin:0 0 14px;color:var(--mut);line-height:1.7}
   <button class="btn btn-lime" data-act="giftStart" style="min-height:56px;font-size:17px">שליחה כמתנה</button>
 </section>
 
+<section class="wrap faqh reveal" style="padding-bottom:48px" aria-labelledby="faqHT">
+  <span class="eyebrow">שאלות ותשובות</span>
+  <h2 id="faqHT" class="disp h2" style="margin:4px 0 12px">כל מה שרציתם לדעת</h2>
+  <details class="faq"><summary>מה ההבדל בין חולצת עונה לחולצת רטרו?</summary><p>חולצת עונה היא העיצוב של עונת 26/27, כמו שהקבוצה עולה איתו למגרש השנה. חולצת רטרו היא עיצוב קלאסי מעונה מיתולוגית, כמו הולנד 98 או יובנטוס 97/98.</p></details>
+  <details class="faq"><summary>כמה זמן לוקח המשלוח?</summary><p>10–18 ימי עסקים עד הבית, עם שליח ומספר מעקב אישי. בכל חולצה מופיע תאריך הגעה משוער.</p></details>
+  <details class="faq"><summary>כמה עולה המשלוח?</summary><p>חינם בקנייה של 2 חולצות או בהזמנה מעל 179 ₪. בהזמנה קטנה יותר, מחיר המשלוח מופיע בקופה.</p></details>
+  <details class="faq"><summary>איך אני יודע איזו מידה לקחת?</summary><p>משתמשים במחשבון "איזו מידה אתה?" או בטבלת המידות שבכל חולצה. למבנה גוף רגיל לוקחים את המידה הרגילה, ולמראה אוברסייז מידה אחת מעל.</p></details>
+  <details class="faq"><summary>מה אפשר להדפיס על הגב?</summary><p>שם באנגלית עד 12 אותיות ומספר עד 2 ספרות. ההדפסה מוכנה תוך 2–4 ימי עסקים לפני המשלוח.</p></details>
+  <details class="faq"><summary>אפשר להחליף או להחזיר?</summary><p>כן, לפי מדיניות ההחזרות וההחלפות של החנות. שימו לב: חולצה שהודפס עליה שם ומספר במיוחד בשבילכם מוגדרת אחרת. כל הפרטים בתקנון.</p></details>
+  <details class="faq"><summary>יש מבצעים?</summary><p>משלוח חינם ב־2 חולצות, ו־10% הנחה להזמנה הראשונה למצטרפים למועדון.</p></details>
+  <details class="faq"><summary>איך שומרים על החולצה והדפסה?</summary><p>מכבסים הפוך במים קרים, בלי מייבש, ולא מגהצים על ההדפסה. ככה היא נשארת כמו חדשה.</p></details>
+  <details class="faq"><summary>איך עוקבים אחרי ההזמנה?</summary><p>מקבלים מספר מעקב במייל, ואפשר לבדוק את הסטטוס בכל רגע ב"מעקב הזמנה" שבתפריט.</p></details>
+</section>
 <section class="wrap" style="padding-bottom:56px" aria-label="למה לקנות אצלנו">
   <div class="trust">
     <div><strong>משלוח עד הבית</strong><span>10–18 ימי עסקים, עם מספר מעקב.</span></div>
@@ -638,7 +677,7 @@ var LGTXT={all:'26 חולצות. עונה חדשה, קלאסיקות רטרו, �
 function rMySize(){var cur=st.qs||rec().s;$('#mySize').innerHTML=SZ.map(function(z){var on=z.s===cur;return '<button class="pill chip-sm'+(on?' on':'')+'" data-qs="'+z.s+'" aria-pressed="'+on+'" style="min-width:48px;padding:0 10px">'+z.s+'</button>'}).join('')}
 var SORT='rec';function sorted(a){a=a.slice();if(SORT==='lo')a.sort(function(x,y){return x.price-y.price});else if(SORT==='hi')a.sort(function(x,y){return y.price-x.price});else if(SORT==='new')a.sort(function(x,y){return (y.lg!=='retro')-(x.lg!=='retro')});return a}
 function rGrid(){$('#lgIntro').textContent=LGTXT[st.lg]||'';var r=rec().s;$('#grid').innerHTML=sorted(P.filter(function(p){return st.lg==='all'||p.lg===st.lg})).map(function(p){return '<article class="card g-card fade"><button class="thumb" data-open="'+p.id+'" aria-label="פתיחת '+p.he+'">'+photo(p)+'</button><strong style="font-size:15px;line-height:1.3">'+p.he+'</strong><div class="row"><span style="font-weight:800">₪'+f2(p.price)+'</span><button class="quick" data-quick="'+p.id+'" aria-label="הוספה מהירה של '+p.he+' במידה '+r+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'+r+'</button></div></article>'}).join('')}
-function rKits(){var k=by(st.kit);$('#heroKit').innerHTML='<span class="hero-photo">'+photo(k)+'</span>';$('#heroKit').setAttribute('aria-label','פתיחת '+k.he);
+function rKits(){var k=by(st.kit);var hk=$('#heroKit');if(hk){hk.innerHTML='<span class="hero-photo">'+photo(k)+'</span>';hk.setAttribute('aria-label','פתיחת '+k.he)}
 $('#studioKit').innerHTML=jersey(k,{stroke:1})+printed(k,'clamp(22px,7vw,32px)','clamp(100px,30vw,140px)');$('#studioFront').innerHTML=photo(k,1);$('#kitName').textContent=k.he;$('#kitPrice').textContent=f2(k.price)}
 function rSwatches(){$('#swatches').innerHTML=P.map(function(p){var on=st.kit===p.id;return '<button class="sw2'+(on?' on':'')+'" data-kit="'+p.id+'" aria-pressed="'+on+'" aria-label="'+p.he+'">'+photo(p)+'</button>'}).join('')}
 function rSize(){var i=recI(),z=SZ[i];$$('.recS').forEach(function(e){e.textContent=z.s});$('#recChest').textContent=z.chest;$('#recLen').textContent=z.len;$('#hVal').textContent=st.h;
@@ -790,6 +829,7 @@ document.addEventListener('click',function(e){var t=e.target.closest('[data-q]')
 
 function setSide(side){var c=$('#stCard');if(!c)return;c.classList.toggle('front',side==='front');$$('.st-flip button').forEach(function(b){var on=b.getAttribute('data-side')===side;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)})}
 document.addEventListener('click',function(e){var t=e.target.closest('[data-side]');if(t)setSide(t.getAttribute('data-side'))});
+document.addEventListener('click',function(e){var t=e.target.closest('[data-lgjump]');if(!t)return;if(t.getAttribute('data-lgjump')==='season'){st.lg='all';SORT='new';var ss=$('#sortSel');if(ss)ss.value='new';rChips();rGrid()}});
 /* ---------- actions ---------- */
 var tT=null;
 function toast(m){clearTimeout(tT);$('#toastBox').innerHTML='<div class="toast" role="status"><span style="padding-right:8px">'+esc(m)+'</span><button class="btn btn-dark" data-go="cart" style="min-height:36px;padding:0 14px;font-size:14px">לסל</button></div>';tT=setTimeout(function(){$('#toastBox').innerHTML=''},2600);try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}}
@@ -836,7 +876,7 @@ else if(t.id==='hIn'){st.h=+t.value;st.qs='';rSize();rGrid();rMySize()}
 else if(t.getAttribute('data-g')){st[t.getAttribute('data-g')]=t.value;save()}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur)closeOv();if(cur==='story'){if(e.key==='ArrowLeft')step(1);if(e.key==='ArrowRight')step(-1)}});
 $('#join').addEventListener('submit',function(e){e.preventDefault();toast('ברוכים הבאים למועדון! הקוד נשלח למייל')});
-$('#heroKit').addEventListener('click',function(){go('p-'+st.kit)});
+
 
 /* swipe down to close sheet */
 var sy=null;document.addEventListener('touchstart',function(e){var s=e.target.closest('.sheet');if(s&&!e.target.closest('.sheet-body'))sy=e.touches[0].clientY;else sy=null},{passive:true});
@@ -855,7 +895,7 @@ $('#fanFile').addEventListener('change',function(e){var f=e.target.files&&e.targ
 document.addEventListener('load',function(e){var t=e.target;if(t&&t.tagName==='IMG'){t.classList.add('ld');t.parentNode&&t.parentNode.classList.add('done')}},true);
 setInterval(function(){$$('.thumb img:not(.ld),.ph img:not(.ld)').forEach(function(i){if(i.complete&&i.naturalWidth){i.classList.add('ld');i.parentNode.classList.add('done')}})},700);
 try{var sv=localStorage.getItem('tcTeam');if(sv){st.team=sv==='-'?'':sv;if(st.team)st.kit=st.team}}catch(x){}
-$$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});(function(){var r=document.documentElement.style;r.setProperty('--bg-pitch','url('+BG.pitch+')');r.setProperty('--bg-ball','url('+BG.ball+')');$$('img[data-bg]').forEach(function(im){var u=BG[im.getAttribute('data-bg')],t=im.closest('.ctile');if(t){t.style.backgroundImage='url('+u+')';im.remove()}else im.src=u});var hi=$('#heroImg');function pick(){var m=window.matchMedia('(max-width:820px)').matches;var src=m?BG.heroM:BG.hero;if(hi.getAttribute('src')!==src)hi.src=src}pick();window.addEventListener('resize',pick)})();rDec();rTeam();rMySize();rRecent();$('#hIn').value=st.h;$('#nameIn').value=st.name;$('#numIn').value=st.num;$('#sortSel').addEventListener('change',function(e){SORT=e.target.value;rGrid()});if(location.hash.length>1)route();
+$$('img[data-img]').forEach(function(i){i.src=IMG[i.getAttribute('data-img')]});(function(){var r=document.documentElement.style;r.setProperty('--bg-pitch','url('+BG.pitch+')');r.setProperty('--bg-ball','url('+BG.ball+')');$$('img[data-kitimg]').forEach(function(im){im.src=IMG[im.getAttribute('data-kitimg')]});$$('img[data-bg]').forEach(function(im){var u=BG[im.getAttribute('data-bg')],t=im.closest('.ctile');if(t){t.style.backgroundImage='url('+u+')';im.remove()}else im.src=u});var hi=$('#heroImg');function pick(){var m=window.matchMedia('(max-width:820px)').matches;var src=m?BG.heroM:BG.hero;if(hi.getAttribute('src')!==src)hi.src=src}pick();window.addEventListener('resize',pick)})();rDec();rTeam();rMySize();rRecent();$('#hIn').value=st.h;$('#nameIn').value=st.name;$('#numIn').value=st.num;$('#sortSel').addEventListener('change',function(e){SORT=e.target.value;rGrid()});if(location.hash.length>1)route();
 /* ---------- promos ---------- */
 var DEALS=[
 {key:'ship',img:'mil',badge:'חינם',t:'2 חולצות = משלוח חינם',d:'בקנייה של 2 חולצות או מעל 179 ₪. אתה ועוד חבר?',cta:'לצמד מנצח',act:'pair'},
@@ -873,7 +913,7 @@ function nextPromo(){var dl=DEALS[pIdx%DEALS.length];pIdx++;showPromo(dl)}
 var pCount=0,lastScroll=0;window.addEventListener('scroll',function(){lastScroll=Date.now()},{passive:true});
 function startPromos(){clearInterval(pTimer);setTimeout(tryPromo,25000);pTimer=setInterval(tryPromo,70000)}
 function tryPromo(){if(pCount>=2){clearInterval(pTimer);return}if(Date.now()-lastScroll<1500){setTimeout(tryPromo,3000);return}pCount++;nextPromo()}
-function cartNudge(){if(st.cart.length===1&&!pShown.nudge){var p=by(st.cart[0].id),q=P.filter(function(x){return x.lg===p.lg&&x.id!==p.id})[0]||P[1];setTimeout(function(){showPromo({key:'nudge',img:q.id,badge:'+1',t:'עוד אחת וזה חינם',d:'הוסיפו את '+q.he+' והמשלוח עלינו.',cta:'הוספה לסל',act:'add:'+q.id})},2800)}}
+function cartNudge(){return;if(st.cart.length===1&&!pShown.nudge){var p=by(st.cart[0].id),q=P.filter(function(x){return x.lg===p.lg&&x.id!==p.id})[0]||P[1];setTimeout(function(){showPromo({key:'nudge',img:q.id,badge:'+1',t:'עוד אחת וזה חינם',d:'הוסיפו את '+q.he+' והמשלוח עלינו.',cta:'הוספה לסל',act:'add:'+q.id})},2800)}}
 function openDeals(){show('deals','<div class="sheet side" role="dialog" aria-modal="true" aria-label="מבצעים" style="height:78vh">'+head('המבצעים')+'<div class="sheet-body">'+DEALS.map(function(dl){return '<div class="deal"><span class="big">'+dl.badge+'</span><span style="flex:1;display:flex;flex-direction:column;gap:2px"><strong>'+dl.t+(dl.demo?' <span class="demo-tag">לדוגמה</span>':'')+'</strong><span style="color:var(--mut);font-size:13px">'+dl.d+'</span></span><button class="quick" data-deal="'+dl.act+'" aria-label="'+dl.cta+'">←</button></div>'}).join('')+'</div></div>')}
 document.addEventListener('click',function(e){var t=e.target.closest('[data-deal],[data-act="pclose"],[data-go="deals"]');if(!t)return;
 if(t.getAttribute('data-act')==='pclose'){hidePromo();return}
@@ -882,7 +922,7 @@ var a=t.getAttribute('data-deal');hidePromo();if(cur){history.replaceState(null,
 if(a==='shop')location.hash='#shop';else if(a==='pair')go('pair');else if(a==='retro')location.hash='#retro';else if(a==='print')location.hash='#print';
 else if(a==='join'){location.hash='#join';setTimeout(function(){try{$('#em').focus({preventScroll:true})}catch(x){}},500)}
 else if(a.indexOf('add:')===0){add(a.slice(4),rec().s)}});
-startPromos();
+/* promo pop-ups off: free-shipping bar does this job */
 
 (document.fonts&&document.fonts.load?document.fonts.load('700 100px Karantina'):Promise.resolve()).then(drawFan,drawFan);
 function teamAsk(){var seen=null;try{seen=localStorage.getItem('tcTeam')}catch(x){}if(seen)return;if(cur||$('#promoBox .promo')){setTimeout(teamAsk,5000);return}
